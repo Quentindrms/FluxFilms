@@ -1,0 +1,54 @@
+@import url('../../colors.css');
+
+.header-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 10vh;
+
+    padding: 5px;
+}
+
+.header-nav{
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+.brand-name{
+    font-size: 1.75rem;
+    color: var(--seasalt);
+
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.header-nav-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    list-style: none;
+    gap: 5vw;
+}
+
+.nav-list-element{
+    padding: 5px;
+}
+
+.nav-link{
+    font-size: 1.45rem;
+    text-decoration: none;
+    color: var(--seasalt);
+}
+
+.nav-link:visited{
+    text-decoration: none;
+    color: var(--seasalt);
+}
+
+.nav-link:hover{
+    color: var(--cyclamen);
+}

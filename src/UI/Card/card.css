@@ -1,0 +1,35 @@
+@import url(../../colors.css);
+
+.movie-card{
+    background-color: var(--space-cadet);
+    border: 1px solid var(--seasalt);
+
+    width: 20vw;
+    height: 25vw;
+
+    display: flex;
+    flex-direction: column;
+    gap: .5vw;
+
+    padding: .5vw;
+}
+
+.movie-card-image{
+    border-radius: 15px;
+}
+
+.movie-card-text{
+    padding: .5vw;
+}
+
+.movie-card-name{
+    color: var(--seasalt);
+}
+
+.movie-card-genre{
+    color: var(--seasalt);
+}
+
+.movie-card-release{
+    color: var(--seasalt);
+}

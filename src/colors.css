@@ -1,0 +1,19 @@
+:root {
+  --space-cadet: #2b2d42ff;
+  --cyclamen: #e86a92ff;
+  --aureolin: #f7e733ff;
+  --seasalt: #f7f7f9ff;
+  --turquoise: #41e2baff;
+
+  --space-cadet-light: #555768ff;
+  --cyclamen-light: #f09cbaff;
+  --aureolin-light: #f9ef77ff;
+  --seasalt-light: #ffffff; 
+  --turquoise-light: #81edceff;
+
+  --space-cadet-dark: #151621ff;
+  --cyclamen-dark: #b84c6fff;
+  --aureolin-dark: #dcb91cff;
+  --seasalt-dark: #c4c4c6ff;
+  --turquoise-dark: #2dafa0ff;
+}
