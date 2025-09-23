@@ -5,6 +5,7 @@ import './style.css';
 
 import { Button } from './UI/Button/Buttons.tsx'
 import { Header } from './UI/Header/Header.tsx'
+import { Footer } from './UI/Footer/Footer.tsx';
 import App from './App.tsx'
 import { Card } from './UI/Card/Card.tsx'
 import { CardInsight } from './UI/Card/CardInisght.tsx';
@@ -47,6 +48,8 @@ createRoot(document.getElementById('root')!).render(
         movieGenre='Lorem'
         movieReleaseDate='1997' />
     </div>
+
+    <Footer />
 
   </StrictMode>,
 )

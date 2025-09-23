@@ -1,0 +1,9 @@
+@import url('../../var.css');
+
+.footer-text{
+    color: var(--seasalt);
+    font-family: var(--font-family-secondary);
+    text-align: center;
+
+    padding: 20px;
+}
