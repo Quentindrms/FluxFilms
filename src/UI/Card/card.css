@@ -6,6 +6,7 @@
 
     width: 20vw;
     height: 28vw;
+    max-height: max-content;
 
     display: flex;
     flex-direction: column;
@@ -27,10 +28,11 @@
     font-family: var(--font-family-secondary-bold);
 }
 
-.movie-card-resume{
-    color:var(--seasalt);
+.movie-card-resume {
+    color: var(--seasalt);
     font-size: 0.75rem;
     font-family: var(--font-family-secondary);
+    text-align: justify;
 }
 
 .movie-card-genre {
@@ -43,9 +45,77 @@
     font-family: var(--font-family-secondary-italic);
 }
 
-.movie-card-footer{
+.movie-card-footer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-top: auto;
+}
+
+/** Movie card insight */
+
+.movie-card-insight {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.75vw;
+
+    padding: .75vw;
+    margin-top: .75vw;
+    margin-bottom: .75vw;
+}
+
+.movie-card-insight-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    justify-content: center;
+    text-align: center;
+}
+
+.movie-card-insight-container-image {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.movie-card-image-insight {
+    border-radius: 15px;
+}
+
+.movie-card-name-insight {
+    font-family: var(--font-family-secondary-bold);
+    font-size: 1.5rem;
+
+    padding: .75vw;
+}
+
+.movie-card-footer-insight {
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+    justify-content: space-around;
+}
+
+.movie-card-name-insight {
+    color: var(--seasalt);
+    font-family: var(--font-family-secondary);
+    font-weight: bold;
+}
+
+.movie-card-resume-insight {
+    font-family: var(--font-family-secondary);
+    color: var(--seasalt);
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
+.movie-card-genre-insight {
+    color: var(--seasalt);
+    font-family: var(--font-family-secondary);
+}
+
+.movie-card-release-insight {
+    color: var(--seasalt);
+    font-family: var(--font-family-secondary);
 }
