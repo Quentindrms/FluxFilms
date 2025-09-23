@@ -1,11 +1,11 @@
-@import url(../../colors.css);
+@import url(../../var.css);
 
-.movie-card{
+.movie-card {
     background-color: var(--space-cadet);
     border: 1px solid var(--seasalt);
 
     width: 20vw;
-    height: 25vw;
+    height: 28vw;
 
     display: flex;
     flex-direction: column;
@@ -14,22 +14,38 @@
     padding: .5vw;
 }
 
-.movie-card-image{
+.movie-card-image {
     border-radius: 15px;
 }
 
-.movie-card-text{
+.movie-card-text {
     padding: .5vw;
 }
 
-.movie-card-name{
+.movie-card-name {
     color: var(--seasalt);
+    font-family: var(--font-family-secondary-bold);
 }
 
-.movie-card-genre{
-    color: var(--seasalt);
+.movie-card-resume{
+    color:var(--seasalt);
+    font-size: 0.75rem;
+    font-family: var(--font-family-secondary);
 }
 
-.movie-card-release{
+.movie-card-genre {
     color: var(--seasalt);
+    font-family: var(--font-family-secondary);
+}
+
+.movie-card-release {
+    color: var(--seasalt);
+    font-family: var(--font-family-secondary-italic);
+}
+
+.movie-card-footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: auto;
 }

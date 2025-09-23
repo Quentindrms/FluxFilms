@@ -3,7 +3,7 @@ import './header.css';
 export function Header(){
 
     return (<header className='header-container'>
-        <h2 className="brand-name">Simplo'ciné</h2>
+        <h2 className="brand-name">FluxFilms</h2>
         <nav className="header-nav">
             <ul className='header-nav-wrapper'>
                 <li className='nav-list-element'><a href="#" className="nav-link">Lien 1</a></li>

@@ -14,22 +14,26 @@ createRoot(document.getElementById('root')!).render(
 
     <Header />
 
-    <div className="card-wrapper">    
+    <div className="card-wrapper">
       <Card
-      movieName='Film'
-      movieGenre='Genre'
-      movieReleaseDate='1997' />
-      <Card
-        movieName='Film'
-        movieGenre='Genre'
+        movieName='Lorem ipsum'
+        movieResume='Lorem ipsum dolor sit amet, consectetur adipiscing elit. In arcu quam, elementum et blandit eu, ultricies quis massa. Proin vestibulum fringilla erat eget dictum. Sed id suscipit tellus. Morbi vitae turpis fringilla, mattis tellus eget, iaculis mauris. Interdum et malesuada fames ac ante ipsum primis in faucibus'
+        movieGenre='Lorem'
         movieReleaseDate='1997' />
       <Card
-        movieName='Film'
-        movieGenre='Genre'
+        movieName='Lorem ipsum'
+        movieResume='Lorem ipsum dolor sit amet, consectetur adipiscing elit. In arcu quam, elementum et blandit eu, ultricies quis massa. Proin vestibulum fringilla erat eget dictum. Sed id suscipit tellus. Morbi vitae turpis fringilla, mattis tellus eget, iaculis mauris. Interdum et malesuada fames ac ante ipsum primis in faucibus'
+        movieGenre='Lorem'
         movieReleaseDate='1997' />
       <Card
-        movieName='Film'
-        movieGenre='Genre'
+        movieName='Lorem ipsum'
+        movieResume='Lorem ipsum dolor sit amet, consectetur adipiscing elit. In arcu quam, elementum et blandit eu, ultricies quis massa. Proin vestibulum fringilla erat eget dictum. Sed id suscipit tellus. Morbi vitae turpis fringilla, mattis tellus eget, iaculis mauris. Interdum et malesuada fames ac ante ipsum primis in faucibus'
+        movieGenre='Lorem'
+        movieReleaseDate='1997' />
+      <Card
+        movieName='Lorem ipsum'
+        movieResume='Lorem ipsum dolor sit amet, consectetur adipiscing elit. In arcu quam, elementum et blandit eu, ultricies quis massa. Proin vestibulum fringilla erat eget dictum. Sed id suscipit tellus. Morbi vitae turpis fringilla, mattis tellus eget, iaculis mauris. Interdum et malesuada fames ac ante ipsum primis in faucibus'
+        movieGenre='Lorem'
         movieReleaseDate='1997' />
     </div>
 
