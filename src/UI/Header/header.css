@@ -30,6 +30,22 @@
     font-family: var(--font-family-brand-name);
 }
 
+
+.brand-name-link{
+    color: var(--seasalt);
+    text-decoration: none;
+}
+
+.brand-name-link:visited{
+    color: var(--seasalt);
+    text-decoration: none;
+}
+
+.brand-name-link:hover{
+    color: var(--cyclamen);
+    text-decoration: none;
+}
+
 .header-nav-wrapper{
     display: flex;
     flex-direction: row;

@@ -1,9 +1,10 @@
 import './card.css'
+import {type MovieGenre } from '../../core/coreType'
 
 interface CardProps {
     movieName: string,
     movieResume: string,
-    movieGenre: string,
+    movieGenre: MovieGenre[],
     movieReleaseDate: string,
 }
 
@@ -18,7 +19,7 @@ export function Card({ movieName, movieResume, movieGenre, movieReleaseDate }: C
             <h3 className="movie-card-text movie-card-name">{movieName}</h3>
             <p className='movie-card-resume'>{movieResume}</p>
             <div className='movie-card-footer'>
-                <p className="movie-card-text movie-card-genre">{movieGenre}</p>
+                <p className="movie-card-text movie-card-genre">test</p>
                 <p className="movie-card-text movie-card-release">{movieReleaseDate}</p>
             </div>
         </div>
