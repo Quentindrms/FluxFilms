@@ -4,7 +4,7 @@ export type MovieDetails = {
     backdrop_path: string,
     belongs_to_collection: string,
     budget: number,
-    genres: MovieGenre[],
+    genres:MovieGenre[]
     homepage: string,
     id: number,
     imdb_id: string,
@@ -26,14 +26,10 @@ export type MovieDetails = {
     voteAverage: number,
     voteCount: number,
 }
-/**
-export type TrendingMovies = {
-    page: number,
-    result : <T>, 
-    totalPages: number,
-    totalResult: number,
-}  
-*/
+
+export type MovieGenreList = { 
+    genres : MovieGenre[];
+}
 
 export type MovieGenre = {
     id: number,

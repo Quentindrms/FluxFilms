@@ -1,15 +1,18 @@
 import './card.css'
-import {type MovieGenre } from '../../core/coreType'
+import {type MovieGenre, type MovieGenreList } from '../../core/coreType'
 
 interface CardProps {
     movieName: string,
     movieResume: string,
-    movieGenre: MovieGenre[],
+    movieGenres: MovieGenre[],
     movieReleaseDate: string,
 }
 
 
-export function Card({ movieName, movieResume, movieGenre, movieReleaseDate }: CardProps) {
+export function Card({ movieName, movieResume, movieGenres, movieReleaseDate }: CardProps) {
+    
+    console.log(`MovieGenreList : ${movieGenres}`);
+    const genreList = movieGenres.map((genre) => genre.name).join(', ');
 
     return (
         <div className="movie-card">
@@ -19,7 +22,7 @@ export function Card({ movieName, movieResume, movieGenre, movieReleaseDate }: C
             <h3 className="movie-card-text movie-card-name">{movieName}</h3>
             <p className='movie-card-resume'>{movieResume}</p>
             <div className='movie-card-footer'>
-                <p className="movie-card-text movie-card-genre">test</p>
+                <p className="movie-card-text movie-card-genre">{genreList}</p>
                 <p className="movie-card-text movie-card-release">{movieReleaseDate}</p>
             </div>
         </div>

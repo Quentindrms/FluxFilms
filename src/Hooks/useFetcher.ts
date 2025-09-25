@@ -1,6 +1,7 @@
 import { useState } from "react";
-import type { MovieDetails } from "../core/coreType";
+import type { MovieDetails, MovieGenre } from "../core/coreType";
 import { fetcherMovieDetails } from "../core/fetcher";
+import { fetcherGenresList } from "../core/fetcher";
 
 export function useFetcherMovieDetails() :[MovieDetails | undefined, () => void]{
 
@@ -13,3 +14,14 @@ export function useFetcherMovieDetails() :[MovieDetails | undefined, () => void]
 
     return [value, setMovie]
 };
+
+export function useFetcherGenreList(): [MovieGenre[] | undefined, () => void]{
+
+    const [value, setValue] = useState<MovieGenre[]>([]);
+    async function setGenreList(){
+        const data = await fetcherGenresList();
+        setValue(data);
+    };
+    console.log(value);
+    return [value, setGenreList];
+}
