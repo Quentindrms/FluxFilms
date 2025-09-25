@@ -9,11 +9,9 @@ const options = {
   }
 };
 
-export async function fetcher(){
+export async function fetcherMovieDetails(id:number){
 
     const result = await fetch(url, options); 
     const data:MovieDetails = await result.json(); 
     return data;
 }
-
-export default fetcher(); 

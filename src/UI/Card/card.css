@@ -4,8 +4,8 @@
     background-color: var(--space-cadet);
     border: 1px solid var(--seasalt);
 
-    width: 20vw;
-    height: 28vw;
+    width: 25vw;
+    height: 35vw;
     max-height: max-content;
 
     display: flex;
@@ -33,6 +33,7 @@
     font-size: 0.75rem;
     font-family: var(--font-family-secondary);
     text-align: justify;
+    overflow: scroll;
 }
 
 .movie-card-genre {

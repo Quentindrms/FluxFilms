@@ -10,13 +10,8 @@ import { Footer } from './UI/Footer/Footer.tsx';
 import { Card } from './UI/Card/Card.tsx'
 import { CardInsight } from './UI/Card/CardInisght.tsx';
 import { Homepage } from './UI/Views/Homepage.tsx';
-import { Series } from './UI/Views/Series.tsx';
 import { Movies } from './UI/Views/Movies.tsx';
 
-import { fetcher } from './core/fetcher.ts';
-
-const data = fetcher();
-console.log(data); 
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -25,7 +20,6 @@ createRoot(document.getElementById('root')!).render(
       <Header />
       <Routes >
         <Route path='/' element={<Homepage />} />
-        <Route path='/series' element={<Series />} />
         <Route path='/movies' element={<Movies />} />
       </Routes>
       <Footer />

@@ -15,7 +15,7 @@ export type MovieDetails = {
     poster_path: string,
     production_compagnies: ProductionCompagnies[],
     production_countries: ProductionCountries[],
-    releaseDate: string,
+    release_date: string,
     revenue: number,
     runtime: number,
     spokenLanguage: SpokenLanguages[],
