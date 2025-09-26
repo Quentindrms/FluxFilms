@@ -1,37 +1,27 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { BrowserRouter, Route, Routes } from 'react-router';
 
 import './style.css';
 
-import { Button } from './UI/Button/Buttons.tsx'
 import { Header } from './UI/Header/Header.tsx'
-import App from './App.tsx'
-import { Card } from './UI/Card/Card.tsx'
+import { Footer } from './UI/Footer/Footer.tsx';
+import { Homepage } from './UI/Views/Homepage.tsx';
+import { Movies } from './UI/Views/Movies.tsx';
 
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
 
-    <Header />
+    <BrowserRouter>
+      <Header />
+      <Routes >
+        <Route path='/' element={<Homepage />} />
+        <Route path='/movies' element={<Movies />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
 
-    <div className="card-wrapper">    
-      <Card
-      movieName='Film'
-      movieGenre='Genre'
-      movieReleaseDate='1997' />
-      <Card
-        movieName='Film'
-        movieGenre='Genre'
-        movieReleaseDate='1997' />
-      <Card
-        movieName='Film'
-        movieGenre='Genre'
-        movieReleaseDate='1997' />
-      <Card
-        movieName='Film'
-        movieGenre='Genre'
-        movieReleaseDate='1997' />
-    </div>
 
   </StrictMode>,
 )

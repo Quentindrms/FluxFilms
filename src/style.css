@@ -1,15 +1,23 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
     background: var(--space-cadet-dark);
 }
 
-.card-wrapper{
+.card-wrapper {
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: .75vw;
+    padding: .75vw;
+}
+
+.title-2 {
+    font-size: 2rem;
+    text-align: center;
+    color: var(--aureolin-light);
+    padding: 2rem;
 }
