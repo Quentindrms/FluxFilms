@@ -1,13 +1,18 @@
 import './card.css';
+import { getPopularMovieGenres } from '../../utilities/getGenreById';
+import type { MovieGenre } from '../../core/coreType';
 
 interface CardInsightProps {
     movieName: string,
     movieResume: string,
-    movieGenre: string,
+    movieGenre: number[],
     movieReleaseDate: string,
+    genreList: MovieGenre[];
 }
 
-export function CardInsight({ movieName, movieResume, movieGenre, movieReleaseDate }: CardInsightProps) {
+export function CardInsight({ movieName, movieResume, movieGenre, movieReleaseDate, genreList }: CardInsightProps) {
+
+    const genres = getPopularMovieGenres(movieGenre, genreList);
 
     return (
         <div className="movie-card-insight">
@@ -18,7 +23,7 @@ export function CardInsight({ movieName, movieResume, movieGenre, movieReleaseDa
                 <h3 className="movie-card-name-insight">{movieName}</h3>
                 <p className='movie-card-resume-insight'>{movieResume}</p>
                 <div className='movie-card-footer-insight'>
-                    <p className='movie-card-genre-insight'>{movieGenre}</p>
+                    <p className='movie-card-genre-insight'>{genres}</p>
                     <p className='movie-card-release-insight'>{movieReleaseDate}</p>
                 </div>
             </div>

@@ -1,40 +1,42 @@
-import { Card } from "../Card/Card";
-import { CardInsight } from "../Card/CardInisght";
+import { Card } from "../Cards/Card";
+import { CardInsight } from "../Cards/CardInisght";
+import { useFetcherPopularMovies, useFetcherGenreList, useFetcherMovieDetails } from "../../Hooks/useFetcher";
+import { useEffect } from "react";
+import { MovieWrapper, PopularMoviesWrapper } from "../Cards/MovieWrapper";
 
 export const Homepage = () => {
-    return (<div>
 
-        <h2 className='title-2'>Film à l'affiche</h2>
+    const [movie, setMovie] = useFetcherMovieDetails();
+    const [genre, setGenre] = useFetcherGenreList();
+    const [popularMovies, setPopularMovies] = useFetcherPopularMovies();
 
-        <CardInsight
-            movieName='Lorem ipsum'
-            movieResume='Lorem ipsum dolor sit amet, consectetur adipiscing elit. In arcu quam, elementum et blandit eu, ultricies quis massa. Proin vestibulum fringilla erat eget dictum. Sed id suscipit tellus. Morbi vitae turpis fringilla, mattis tellus eget, iaculis mauris. Interdum et malesuada fames ac ante ipsum primis in faucibus'
-            movieGenre='Lorem'
-            movieReleaseDate='1997' />
+    useEffect(() => {
+        setMovie();
+        setGenre();
+        setPopularMovies();
+    })
 
-        <h2 className='title-2'>Nos films du moment</h2>
-        <div className="card-wrapper">
+    if (!movie || !genre || !popularMovies) {
+        return <h1 className='title-2'>Chargement...</h1>
+    }
+    else {
 
-            <Card
-                movieName='Lorem ipsum'
-                movieResume='Lorem ipsum dolor sit amet, consectetur adipiscing elit. In arcu quam, elementum et blandit eu, ultricies quis massa. Proin vestibulum fringilla erat eget dictum. Sed id suscipit tellus. Morbi vitae turpis fringilla, mattis tellus eget, iaculis mauris. Interdum et malesuada fames ac ante ipsum primis in faucibus'
-                movieGenre='Lorem'
-                movieReleaseDate='1997' />
-            <Card
-                movieName='Lorem ipsum'
-                movieResume='Lorem ipsum dolor sit amet, consectetur adipiscing elit. In arcu quam, elementum et blandit eu, ultricies quis massa. Proin vestibulum fringilla erat eget dictum. Sed id suscipit tellus. Morbi vitae turpis fringilla, mattis tellus eget, iaculis mauris. Interdum et malesuada fames ac ante ipsum primis in faucibus'
-                movieGenre='Lorem'
-                movieReleaseDate='1997' />
-            <Card
-                movieName='Lorem ipsum'
-                movieResume='Lorem ipsum dolor sit amet, consectetur adipiscing elit. In arcu quam, elementum et blandit eu, ultricies quis massa. Proin vestibulum fringilla erat eget dictum. Sed id suscipit tellus. Morbi vitae turpis fringilla, mattis tellus eget, iaculis mauris. Interdum et malesuada fames ac ante ipsum primis in faucibus'
-                movieGenre='Lorem'
-                movieReleaseDate='1997' />
-            <Card
-                movieName='Lorem ipsum'
-                movieResume='Lorem ipsum dolor sit amet, consectetur adipiscing elit. In arcu quam, elementum et blandit eu, ultricies quis massa. Proin vestibulum fringilla erat eget dictum. Sed id suscipit tellus. Morbi vitae turpis fringilla, mattis tellus eget, iaculis mauris. Interdum et malesuada fames ac ante ipsum primis in faucibus'
-                movieGenre='Lorem'
-                movieReleaseDate='1997' />
+        return (<div>
+
+            <h2 className='title-2'>Film à l'affiche</h2>
+
+            <CardInsight
+                movieName={popularMovies.results[0].title}
+                movieResume={popularMovies.results[0].overview}
+                movieGenre={popularMovies.results[0].genre_ids}
+                movieReleaseDate={popularMovies.results[0].release_date}
+                genreList={genre} />
+
+            <h2 className='title-2'>Films populaires</h2>
+
+            <PopularMoviesWrapper />
+
         </div>
-    </div>)
+        )
+    }
 }

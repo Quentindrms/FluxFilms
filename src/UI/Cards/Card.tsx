@@ -4,15 +4,14 @@ import {type MovieGenre, type MovieGenreList } from '../../core/coreType'
 interface CardProps {
     movieName: string,
     movieResume: string,
-    movieGenres: MovieGenre[],
+    movieGenre: MovieGenre[],
     movieReleaseDate: string,
 }
 
 
-export function Card({ movieName, movieResume, movieGenres, movieReleaseDate }: CardProps) {
+export function Card({ movieName, movieResume, movieGenre, movieReleaseDate }: CardProps) {
     
-    console.log(`MovieGenreList : ${movieGenres}`);
-    const genreList = movieGenres.map((genre) => genre.name).join(', ');
+    const genreList = movieGenre.map((genre) => genre.name).join(', ');
 
     return (
         <div className="movie-card">

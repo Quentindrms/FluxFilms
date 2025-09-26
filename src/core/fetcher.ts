@@ -1,4 +1,4 @@
-import type { MovieDetails, MovieGenre, MovieGenreList } from "./coreType";
+import type { MovieDetails, MovieGenre, MovieGenreList, PopularMoviesList } from "./coreType";
 
 const options = {
   method: 'GET',
@@ -37,11 +37,11 @@ export async function fetcherMovieDetails(id: number) {
   return data;
 }
 
-export async function fetcherMovies() {
+export async function fetcherPopularMovies() {
 
-  const url = 'https://api.themoviedb.org/3/genre/movie/list';
+  const url = 'https://api.themoviedb.org/3/movie/popular';
 
   const result = await fetch(url, options);
-  const data:MovieGenre[] = await result.json();
+  const data:PopularMoviesList = await result.json();
   return data;
 }

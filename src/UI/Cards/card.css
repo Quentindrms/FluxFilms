@@ -1,12 +1,38 @@
 @import url(../../var.css);
 
+.movie-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 0.85rem;
+    height: max-content;
+    overflow: scroll;
+
+    padding-top: 2rem;
+}
+
 .movie-card {
     background-color: var(--space-cadet);
     border: 1px solid var(--seasalt);
 
     width: 25vw;
-    height: 35vw;
-    max-height: max-content;
+    max-height: 35vw;
+
+
+    display: flex;
+    flex-direction: column;
+    gap: .5vw;
+
+    padding: .5vw;
+
+    overflow:hidden;
+}
+
+.movie-card-popular {
+    background-color: var(--space-cadet);
+    border: 1px solid var(--seasalt);
+
+    width: 25vw;
+    height: 30vw;
 
     display: flex;
     flex-direction: column;
@@ -34,6 +60,7 @@
     font-family: var(--font-family-secondary);
     text-align: justify;
     overflow: scroll;
+    max-height: 5vw;
 }
 
 .movie-card-genre {
@@ -51,6 +78,10 @@
     flex-direction: row;
     justify-content: space-between;
     margin-top: auto;
+    max-height: fit-content;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    align-items: flex-end;
 }
 
 /** Movie card insight */

@@ -4,11 +4,8 @@ import { BrowserRouter, Route, Routes } from 'react-router';
 
 import './style.css';
 
-import { Button } from './UI/Button/Buttons.tsx'
 import { Header } from './UI/Header/Header.tsx'
 import { Footer } from './UI/Footer/Footer.tsx';
-import { Card } from './UI/Card/Card.tsx'
-import { CardInsight } from './UI/Card/CardInisght.tsx';
 import { Homepage } from './UI/Views/Homepage.tsx';
 import { Movies } from './UI/Views/Movies.tsx';
 
