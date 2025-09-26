@@ -1,7 +1,6 @@
 import { useFetcherGenreList, useFetcherMovieDetails, useFetcherPopularMovies } from "../../Hooks/useFetcher"
-import { Card } from "../Cards/Card";
+import { Card, CardInsight } from "../Cards/Card";
 import { useEffect } from "react";
-import { CardInsight } from "../Cards/CardInisght";
 
 export const Movies = () => {
 

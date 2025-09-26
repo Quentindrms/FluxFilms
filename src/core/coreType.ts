@@ -1,10 +1,11 @@
+/** Movies */
 
 export type MovieDetails = {
     adult: boolean,
     backdrop_path: string,
     belongs_to_collection: string,
     budget: number,
-    genres:MovieGenre[]
+    genres: MovieGenre[]
     homepage: string,
     id: number,
     imdb_id: string,
@@ -51,14 +52,72 @@ export type PopularMoviesList = {
     total_results: number,
 }
 
-export type MovieGenreList = { 
-    genres : MovieGenre[];
+export type TopRatedMovies = {
+    adult: boolean,
+    backdrop_path: string,
+    genre_ids: number[],
+    id: number,
+    original_language: string,
+    original_title: string,
+    overview: string,
+    popularity: number,
+    poster_path: string,
+    release_date: string,
+    title: string,
+    video: boolean,
+    vote_average: number,
+    vote_count: number,
+}
+
+export type TopRatedMoviesList = {
+    page: number,
+    results: TopRatedMovies[]
+    total_pages: number,
+    total_results: number,
+}
+
+export type UpcomingMovies = {
+    adult: boolean,
+    backdrop_path: string,
+    genre_ids: number[],
+    id: number,
+    original_language: string,
+    original_title: string,
+    overview: string,
+    popularity: number,
+    poster_path: string,
+    release_date: string,
+    title: string,
+    video: boolean,
+    vote_average: number,
+    vote_count: number,
+}
+
+export type UpcomingMoviesList = {
+    dates: Dates,
+    page: number,
+    results: UpcomingMovies[],
+    total_pages: number,
+    total_results: number,
+}
+
+export type Dates = {
+    maximum: string,
+    minimun: string,
+}
+
+/** Genres */
+
+export type MovieGenreList = {
+    genres: MovieGenre[];
 }
 
 export type MovieGenre = {
     id: number,
     name: string,
 }
+
+/** Production */
 
 export type ProductionCompagnies = {
     id: number,
@@ -77,6 +136,8 @@ export type SpokenLanguages = {
     iso_639_1: string,
     name: string,
 }
+
+/** Series */
 
 export type SeriesDetails = {
     adult: boolean,

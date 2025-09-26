@@ -18,5 +18,6 @@ body {
 .title-2 {
     font-size: 2rem;
     text-align: center;
-    color: var(--aureolin-light)
+    color: var(--aureolin-light);
+    padding: 2rem;
 }

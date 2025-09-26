@@ -1,4 +1,4 @@
-import type { MovieDetails, MovieGenre, MovieGenreList, PopularMoviesList } from "./coreType";
+import type { MovieDetails, MovieGenre, MovieGenreList, PopularMoviesList, TopRatedMoviesList, UpcomingMoviesList } from "./coreType";
 
 const options = {
   method: 'GET',
@@ -10,7 +10,7 @@ const options = {
 
 /** Genre fetcher */
 
-export async function fetcherGenresList(){
+export async function fetcherGenresList() {
   const url = 'https://api.themoviedb.org/3/genre/movie/list';
 
   const result = await fetch(url, options);
@@ -18,7 +18,7 @@ export async function fetcherGenresList(){
   return data.genres;
 }
 
-export async function fetcherGenre(id: number){
+export async function fetcherGenre(id: number) {
   const url = '';
 
   const result = await fetch(url, options);
@@ -42,6 +42,23 @@ export async function fetcherPopularMovies() {
   const url = 'https://api.themoviedb.org/3/movie/popular';
 
   const result = await fetch(url, options);
-  const data:PopularMoviesList = await result.json();
+  const data: PopularMoviesList = await result.json();
+  return data;
+}
+
+export async function fetcherTopRatedMovies() {
+
+  const url = 'https://api.themoviedb.org/3/movie/top_rated';
+
+  const result = await fetch(url, options);
+  const data: TopRatedMoviesList = await result.json();
+  return data;
+}
+
+export async function fetcherUpcomingMovies(){
+  const url = 'https://api.themoviedb.org/3/movie/upcoming';
+
+  const result = await fetch(url, options);
+  const data: UpcomingMoviesList = await result.json();
   return data;
 }
