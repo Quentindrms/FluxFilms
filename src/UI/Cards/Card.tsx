@@ -7,6 +7,7 @@ interface CardProps {
     movieResume: string,
     movieGenre: MovieGenre[],
     movieReleaseDate: string,
+    moviePoster: string,
 }
 
 interface CardPopularMovieProps {
@@ -15,6 +16,7 @@ interface CardPopularMovieProps {
     movieGenre: number[],
     movieReleaseDate: string,
     genreList: MovieGenre[];
+    moviePoster: string,
 }
 
 interface CardInsightProps {
@@ -23,17 +25,19 @@ interface CardInsightProps {
     movieGenre: number[],
     movieReleaseDate: string,
     genreList: MovieGenre[];
+    moviePoster: string;
 }
 
 
-export function Card({ movieName, movieResume, movieGenre, movieReleaseDate }: CardProps) {
+export function Card({ movieName, movieResume, movieGenre, movieReleaseDate, moviePoster }: CardProps) {
 
     const genreList = movieGenre.map((genre) => genre.name).join(', ');
+    const poster: string = ('https://image.tmdb.org/t/p/original' + moviePoster)
 
     return (
         <div className="movie-card">
 
-            <img className='movie-card-image' src="https://placehold.co/600x400" alt="" title=""></img>
+            <img className='movie-card-image' src={poster} alt="" title=""></img>
 
             <h3 className="movie-card-text movie-card-name">{movieName}</h3>
             <p className='movie-card-resume'>{movieResume}</p>
@@ -45,13 +49,14 @@ export function Card({ movieName, movieResume, movieGenre, movieReleaseDate }: C
     )
 }
 
-export function CardPopularMovie({ movieName, movieResume, movieGenre, movieReleaseDate, genreList }: CardPopularMovieProps) {
+export function CardPopularMovie({ movieName, movieResume, movieGenre, movieReleaseDate, genreList, moviePoster }: CardPopularMovieProps) {
 
     const genres = getPopularMovieGenres(movieGenre, genreList);
+    const poster:string = ('https://image.tmdb.org/t/p/original' + moviePoster)
 
     return (
         <div className="movie-card-popular">
-            <img className='movie-card-image' src="https://placehold.co/600x400" alt=""></img>
+            <img className='movie-card-image' src={poster} alt=""></img>
             <div className='movie-card-insight-body'>
                 <h3 className="movie-card-name">{movieName}</h3>
                 <p className='movie-card-resume'>{movieResume}</p>
@@ -65,14 +70,15 @@ export function CardPopularMovie({ movieName, movieResume, movieGenre, movieRele
 
 }
 
-export function CardInsight({ movieName, movieResume, movieGenre, movieReleaseDate, genreList }: CardInsightProps) {
+export function CardInsight({ movieName, movieResume, movieGenre, movieReleaseDate, genreList, moviePoster }: CardInsightProps) {
 
     const genres = getPopularMovieGenres(movieGenre, genreList);
+    const poster: string = ('https://image.tmdb.org/t/p/original' + moviePoster)
 
     return (
         <div className="movie-card-insight">
             <div className='movie-card-insight-container-image'>
-                <img className='movie-card-image-insight' src="https://placehold.co/1000x250" alt=""></img>
+                <img className='movie-card-image-insight' src={poster} alt=""></img>
             </div>
             <div className='movie-card-insight-body'>
                 <h3 className="movie-card-name-insight">{movieName}</h3>

@@ -26,6 +26,7 @@ export function PopularMovieWrapper() {
                         movieGenre={movie.genre_ids}
                         movieName={movie.title}
                         movieReleaseDate={movie.release_date}
+                        moviePoster={movie.poster_path}
                         movieResume={movie.overview}
                     />
                 ))}
@@ -56,6 +57,7 @@ export function TopRatedMovieWrapper(){
                     movieGenre={movie.genre_ids}
                     movieName={movie.title}
                     movieReleaseDate={movie.release_date}
+                    moviePoster={movie.poster_path}
                     movieResume={movie.overview} 
                     />
                 ))};
@@ -86,6 +88,7 @@ export function UpcommingMovieWrapper(){
                     movieGenre={movie.genre_ids}
                     movieName={movie.title}
                     movieReleaseDate={movie.release_date}
+                    moviePoster={movie.poster_path}
                     movieResume={movie.overview} /> 
                 ))}
             </div>

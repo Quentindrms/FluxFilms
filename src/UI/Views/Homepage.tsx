@@ -31,6 +31,7 @@ export const Homepage = () => {
                 movieResume={popularMovies.results[random].overview}
                 movieGenre={popularMovies.results[random].genre_ids}
                 movieReleaseDate={popularMovies.results[random].release_date}
+                moviePoster={popularMovies.results[random].poster_path}
                 genreList={genre} />
 
             <h2 className='title-2'>Les plus populaires</h2>
