@@ -1,5 +1,5 @@
 import './card.css'
-import { type MovieGenre, type MovieGenreList } from '../../core/coreType'
+import { type MovieGenre} from '../../core/coreType'
 import { getPopularMovieGenres } from '../../utilities/getGenreById'
 
 interface CardProps {
@@ -55,7 +55,7 @@ export function CardPopularMovie({ movieName, movieResume, movieGenre, movieRele
     const poster:string = ('https://image.tmdb.org/t/p/original' + moviePoster)
 
     return (
-        <div className="movie-card-popular">
+        <li className="movie-card-popular">
             <img className='movie-card-image' src={poster} alt=""></img>
             <div className='movie-card-insight-body'>
                 <h3 className="movie-card-name">{movieName}</h3>
@@ -65,7 +65,7 @@ export function CardPopularMovie({ movieName, movieResume, movieGenre, movieRele
                     <p className='movie-card-release'>{movieReleaseDate}</p>
                 </div>
             </div>
-        </div>
+        </li>
     )
 
 }

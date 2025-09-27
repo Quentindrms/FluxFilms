@@ -1,7 +1,7 @@
 import './card.css';
-import { useFetcherMovieDetails, useFetcherGenreList, useFetcherPopularMovies, useFetcherTopRatedMovies, useFetcherUpcomingMovies } from '../../Hooks/useFetcher';
+import { useFetcherGenreList, useFetcherPopularMovies, useFetcherTopRatedMovies, useFetcherUpcomingMovies } from '../../Hooks/useFetcher';
 import { useEffect } from 'react';
-import { Card, CardPopularMovie } from './Card';
+import { CardPopularMovie } from './Card';
 
 export function PopularMovieWrapper() {
 
@@ -19,23 +19,23 @@ export function PopularMovieWrapper() {
     }
     else {
         return (
-            <div className='movie-wrapper'>
+            <ul className='movie-wrapper'>
                 {popularMovies.results.map((movie) => (
-                    <CardPopularMovie
-                        genreList={genre}
-                        movieGenre={movie.genre_ids}
-                        movieName={movie.title}
-                        movieReleaseDate={movie.release_date}
-                        moviePoster={movie.poster_path}
-                        movieResume={movie.overview}
-                    />
+                        <CardPopularMovie
+                            genreList={genre}
+                            movieGenre={movie.genre_ids}
+                            movieName={movie.title}
+                            movieReleaseDate={movie.release_date}
+                            moviePoster={movie.poster_path}
+                            movieResume={movie.overview}
+                        />
                 ))}
-            </div>
+            </ul>
         )
     }
 }
 
-export function TopRatedMovieWrapper(){
+export function TopRatedMovieWrapper() {
 
     const [genre, setGenre] = useFetcherGenreList();
     const [topRatedMovies, setTopRatedMovies] = useFetcherTopRatedMovies();
@@ -45,20 +45,20 @@ export function TopRatedMovieWrapper(){
         setTopRatedMovies();
     }, []);
 
-    if(!genre || !topRatedMovies){
+    if (!genre || !topRatedMovies) {
         return <h1 className='title-1'>Chargement...</h1>
     }
-    else{
-        return(
+    else {
+        return (
             <div className='movie-wrapper'>
                 {topRatedMovies.results.map((movie) => (
                     <CardPopularMovie
-                    genreList={genre}
-                    movieGenre={movie.genre_ids}
-                    movieName={movie.title}
-                    movieReleaseDate={movie.release_date}
-                    moviePoster={movie.poster_path}
-                    movieResume={movie.overview} 
+                        genreList={genre}
+                        movieGenre={movie.genre_ids}
+                        movieName={movie.title}
+                        movieReleaseDate={movie.release_date}
+                        moviePoster={movie.poster_path}
+                        movieResume={movie.overview}
                     />
                 ))};
             </div>
@@ -66,7 +66,7 @@ export function TopRatedMovieWrapper(){
     }
 }
 
-export function UpcommingMovieWrapper(){
+export function UpcommingMovieWrapper() {
 
     const [movies, setMovie] = useFetcherUpcomingMovies();
     const [genre, setGenre] = useFetcherGenreList();
@@ -76,20 +76,20 @@ export function UpcommingMovieWrapper(){
         setGenre();
     }, []);
 
-    if(!movies || !genre){
+    if (!movies || !genre) {
         return <h1 className='title-1'>Chargement...</h1>
     }
-    else{
-        return(
+    else {
+        return (
             <div className='movie-wrapper'>
                 {movies.results.map((movie) => (
                     <CardPopularMovie
-                    genreList={genre}
-                    movieGenre={movie.genre_ids}
-                    movieName={movie.title}
-                    movieReleaseDate={movie.release_date}
-                    moviePoster={movie.poster_path}
-                    movieResume={movie.overview} /> 
+                        genreList={genre}
+                        movieGenre={movie.genre_ids}
+                        movieName={movie.title}
+                        movieReleaseDate={movie.release_date}
+                        moviePoster={movie.poster_path}
+                        movieResume={movie.overview} />
                 ))}
             </div>
         )

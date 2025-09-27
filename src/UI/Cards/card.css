@@ -3,9 +3,9 @@
 .movie-wrapper {
     display: flex;
     flex-direction: row;
-    gap: 0.85rem;
+    gap: 2vw;
     height: max-content;
-    overflow: scroll;
+    overflow-x: scroll;
 }
 
 .movie-card {
@@ -20,7 +20,7 @@
     flex-direction: column;
     gap: .5vw;
 
-    padding: .5vw;
+    padding: .75vw;
 
     overflow:hidden;
 }
@@ -32,12 +32,16 @@
     flex-direction: column;
     gap: .5vw;
 
-    padding: .5vw;
+    padding: .75vw;
+
+    border-radius: 10px;
+    border: 1px solid var(--cyclamen-light)
 }
 
 .movie-card-image {
     border-radius: 15px;
-    width: 15vw;
+    width: 20vw;
+    filter: drop-shadow(2px 2px var(--aureolin-light))
 }
 
 .movie-card-text {
@@ -56,17 +60,20 @@
     text-align: justify;
     overflow: scroll;
     height: 10vw;
+    padding: 0.5vw
 }
 
 .movie-card-genre {
-    color: var(--seasalt);
+    color: var(--cyclamen-dark);
     font-family: var(--font-family-secondary);
     width: 5vw;
+    text-align: center;
 }
 
 .movie-card-release {
     color: var(--seasalt);
     font-family: var(--font-family-secondary-italic);
+    text-align: center;
 }
 
 .movie-card-footer {
@@ -77,7 +84,7 @@
     max-height: fit-content;
     overflow: hidden;
     text-overflow: ellipsis;
-    align-items: flex-end;
+    align-items:center
 }
 
 /** Movie card insight */
