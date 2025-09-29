@@ -1,7 +1,18 @@
 import './card.css';
-import { useFetcherGenreList, useFetcherPopularMovies, useFetcherTopRatedMovies, useFetcherUpcomingMovies } from '../../Hooks/useFetcher';
+import { useFetcherGenreList, useFetcherMovieByGenre, useFetcherPopularMovies, useFetcherSeriesByGenre, useFetcherSeriesGenre, useFetcherTopRatedMovies, useFetcherUpcomingMovies } from '../../Hooks/useFetcher';
 import { useEffect } from 'react';
-import { CardPopularMovie } from './Card';
+import { CardPopularMovie, Card, CardSeries } from './Card';
+import type { ListMovieByGenre, MovieGenre } from '../../core/coreType';
+
+interface ListMovieByGenreProps {
+    url: string
+}
+
+interface ListSeriesByGenreProps {
+    url: string
+}
+
+interface 
 
 export function PopularMovieWrapper() {
 
@@ -21,14 +32,14 @@ export function PopularMovieWrapper() {
         return (
             <ul className='movie-wrapper'>
                 {popularMovies.results.map((movie) => (
-                        <CardPopularMovie
-                            genreList={genre}
-                            movieGenre={movie.genre_ids}
-                            movieName={movie.title}
-                            movieReleaseDate={movie.release_date}
-                            moviePoster={movie.poster_path}
-                            movieResume={movie.overview}
-                        />
+                    <CardPopularMovie
+                        genreList={genre}
+                        movieGenre={movie.genre_ids}
+                        movieName={movie.title}
+                        movieReleaseDate={movie.release_date}
+                        moviePoster={movie.poster_path}
+                        movieResume={movie.overview}
+                    />
                 ))}
             </ul>
         )
@@ -94,5 +105,63 @@ export function UpcommingMovieWrapper() {
             </div>
         )
     }
+}
+
+export function ListMovieByGenre({ url }: ListMovieByGenreProps) {
+    const [movies, setMovie] = useFetcherMovieByGenre(url);
+    const [genre, setGenre] = useFetcherGenreList();
+
+    useEffect(() => {
+        setMovie();
+        setGenre();
+    }, [])
+
+    if (!movies || !genre) {
+        <h1 className='title-1'>Chargement...</h1>
+    }
+    else {
+        return (
+            <div className='movie-wrapper'>
+                {movies.results.map((movie) => (
+                    <CardPopularMovie
+                        genreList={genre}
+                        movieGenre={movie.genre_ids}
+                        movieName={movie.title}
+                        movieReleaseDate={movie.release_date}
+                        moviePoster={movie.poster_path}
+                        movieResume={movie.overview}
+                    />
+                ))}
+            </div>
+        )
+    }
+}
+
+export function ListSeriesByGenre({ url }: ListSeriesByGenreProps) {
+    const [series, setSerie] = useFetcherSeriesByGenre(url);
+    const [genre, setGenre] = useFetcherSeriesGenre();
+
+    useEffect(() => {
+        setSerie();
+        setGenre();
+    })
+
+    if (!series || !genre) {
+        <h1 className='title-1'>Chargement...</h1>
+    }
+    else {
+        return (
+            <div className='movie-wrapper'>
+                {series.results.map((movie) => (
+                    <CardSeries
+                        genreList={genre}
+                        movieGenre={movie.genre_ids}
+                        movieName={movie.title}
+                        movieReleaseDate={movie.release_date}
+                        moviePoster={movie.poster_path}
+                        movieResume={movie.overview}
+                    />
+                ))}
+            </div>
 
 }

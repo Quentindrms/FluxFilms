@@ -106,6 +106,31 @@ export type Dates = {
     minimun: string,
 }
 
+export type ListMovieByGenre = {
+    dates: Dates,
+    page: number,
+    results: MovieByGenre[],
+    total_pages: number,
+    total_results: number,
+}
+
+export type MovieByGenre = {
+    adult: boolean,
+    backdrop_path: string,
+    genre_ids: number[],
+    id: number,
+    original_language: string,
+    original_title: string,
+    overview: string,
+    popularity: number,
+    poster_path: string,
+    release_date: string,
+    title: string,
+    video: boolean,
+    vote_average: number,
+    vote_count: number,
+}
+
 /** Genres */
 
 export type MovieGenreList = {
@@ -145,7 +170,7 @@ export type SeriesDetails = {
     createdBy: CreatedBy[],
     episodeRunTime: number[],
     firstAirDate: string,
-    genre: SeriesGenre[],
+    genre: SeriesGenres[],
     homepage: string,
     id: number,
     inProduction: boolean,
@@ -166,7 +191,30 @@ export type SeriesDetails = {
     type: string,
     voteAverage: number,
     voteCount: number,
+}
 
+export type SeriesByGenre = {
+    adult: boolean,
+    backdrop_path: string,
+    genre_ids: number[],
+    id: number,
+    original_language: string,
+    original_title: string,
+    overview: string,
+    popularity: number,
+    poster_path: string,
+    release_date: string,
+    title: string,
+    video: boolean,
+    vote_average: number,
+    vote_count: number,
+}
+
+export type SeriesByGenreList = { 
+    page: number,
+    results: SeriesByGenre[],
+    total_pages: number,
+    total_results: number,
 }
 
 export type CreatedBy = {
@@ -177,7 +225,7 @@ export type CreatedBy = {
     profilePath: string,
 }
 
-export type SeriesGenre = {
+export type SeriesGenres = {
     id: number,
     name: string,
 }

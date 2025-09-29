@@ -1,12 +1,19 @@
 import { useFetcherGenreList, useFetcherMovieDetails, useFetcherPopularMovies } from "../../Hooks/useFetcher"
 import { Card, CardInsight } from "../Cards/Card";
 import { useEffect } from "react";
+import { ListMovieByGenre } from "../Cards/MovieWrapper";
 
 export const Movies = () => {
 
     const [movie, setMovie] = useFetcherMovieDetails();
     const [genre, setGenre] = useFetcherGenreList();
     const [popularMovies, setPopularMovies] = useFetcherPopularMovies();
+
+    const movieCategorieAction = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=28'
+    const movieCategorieDocumentary = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=99'
+    const movieCategorieScienceFiction = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=878'
+    const movieCategorieThriller = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=53'
+    const movieCategorieCrime = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=80'
 
     useEffect(() => {
         setMovie();
@@ -16,24 +23,24 @@ export const Movies = () => {
 
     console.log(genre);
 
-    if(!movie || !genre || !popularMovies){
+    if (!movie || !genre || !popularMovies) {
         <div>Chargement</div>
     }
-    else{
+    else {
 
-    return (
-        <div>
-            <div className="card-wrapper">
-                <Card movieGenre={movie.genres} movieName={movie.original_title} movieReleaseDate={movie.release_date} movieResume={movie.overview} />
-            </div>
-
+        return (
             <div>
-                <div className="card-wrapper">
-                    <CardInsight movieGenre={popularMovies.results[0].genre_ids} movieName={popularMovies.results[0].title} movieReleaseDate={popularMovies.results[0].release_date} movieResume={popularMovies.results[0].release_date} genreList={genre} key={1} />
-                </div>
+                <h2 className="title-2">Catégorie action</h2>
+                <ListMovieByGenre url={movieCategorieAction}/>
+                <h2 className="title-2">Catégorie documentaire</h2>
+                <ListMovieByGenre url={movieCategorieDocumentary} />
+                <h2 className="title-2">Science fiction</h2>
+                <ListMovieByGenre url={movieCategorieScienceFiction} />
+                <h2 className="title-2">Thriller</h2>
+                <ListMovieByGenre url={movieCategorieThriller} />
+                <h2 className="title-2">Crime</h2>
+                <ListMovieByGenre url={movieCategorieCrime} />
             </div>
-
-        </div>
-    )
-}
+        )
+    }
 }
