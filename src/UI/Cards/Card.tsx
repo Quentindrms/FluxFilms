@@ -1,6 +1,6 @@
 import './card.css'
-import { type MovieGenre, type MovieGenreList } from '../../core/coreType'
-import { getPopularMovieGenres } from '../../utilities/getGenreById'
+import { type MovieGenre, type SeriesByGenreList, type SeriesGenres } from '../../core/coreType'
+import { getPopularMovieGenres, getPopularSerieGenre } from '../../utilities/getGenreById'
 
 interface CardProps {
     movieName: string,
@@ -28,6 +28,15 @@ interface CardInsightProps {
     moviePoster: string;
 }
 
+interface CardSeriesProps {
+    serieName: string,
+    serieResume: string,
+    serieGenre: number[],
+    serieReleaseDate: string,
+    genreList: SeriesGenres[];
+    seriePoster: string;
+}
+
 
 export function Card({ movieName, movieResume, movieGenre, movieReleaseDate, moviePoster }: CardProps) {
 
@@ -52,10 +61,10 @@ export function Card({ movieName, movieResume, movieGenre, movieReleaseDate, mov
 export function CardPopularMovie({ movieName, movieResume, movieGenre, movieReleaseDate, genreList, moviePoster }: CardPopularMovieProps) {
 
     const genres = getPopularMovieGenres(movieGenre, genreList);
-    const poster:string = ('https://image.tmdb.org/t/p/original' + moviePoster)
+    const poster: string = ('https://image.tmdb.org/t/p/original' + moviePoster)
 
     return (
-        <div className="movie-card-popular">
+        <li className="movie-card-popular">
             <img className='movie-card-image' src={poster} alt=""></img>
             <div className='movie-card-insight-body'>
                 <h3 className="movie-card-name">{movieName}</h3>
@@ -65,7 +74,7 @@ export function CardPopularMovie({ movieName, movieResume, movieGenre, movieRele
                     <p className='movie-card-release'>{movieReleaseDate}</p>
                 </div>
             </div>
-        </div>
+        </li>
     )
 
 }
@@ -90,4 +99,24 @@ export function CardInsight({ movieName, movieResume, movieGenre, movieReleaseDa
             </div>
         </div>
     )
+}
+
+export function CardSeries({ serieName, serieResume, serieGenre, serieReleaseDate, genreList, seriePoster }: CardSeriesProps) {
+    const genres = getPopularSerieGenre(serieGenre, genreList);
+    const poster: string = ('https://image.tmdb.org/t/p/original' + seriePoster)
+
+    return (
+        <li className="movie-card-popular">
+            <img className='movie-card-image' src={poster} alt=""></img>
+            <div className='movie-card-insight-body'>
+                <h3 className="movie-card-name">{serieName}</h3>
+                <p className='movie-card-resume'>{serieResume}</p>
+                <div className='movie-card-footer'>
+                    <p className='movie-card-genre'>{genres}</p>
+                    <p className='movie-card-release'>{serieReleaseDate}</p>
+                </div>
+            </div>
+        </li>
+    )
+
 }

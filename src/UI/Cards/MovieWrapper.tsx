@@ -1,7 +1,16 @@
 import './card.css';
-import { useFetcherMovieDetails, useFetcherGenreList, useFetcherPopularMovies, useFetcherTopRatedMovies, useFetcherUpcomingMovies } from '../../Hooks/useFetcher';
+import { useFetcherGenreList, useFetcherMovieByGenre, useFetcherPopularMovies, useFetcherSeriesByGenre, useFetcherSeriesGenre, useFetcherTopRatedMovies, useFetcherUpcomingMovies } from '../../Hooks/useFetcher';
 import { useEffect } from 'react';
-import { Card, CardPopularMovie } from './Card';
+import { CardPopularMovie, Card, CardSeries } from './Card';
+import type { ListMovieByGenre, MovieGenre } from '../../core/coreType';
+
+interface ListMovieByGenreProps {
+    url: string
+}
+
+interface ListSeriesByGenreProps {
+    url: string
+}
 
 export function PopularMovieWrapper() {
 
@@ -19,8 +28,99 @@ export function PopularMovieWrapper() {
     }
     else {
         return (
-            <div className='movie-wrapper'>
+            <ul className='movie-wrapper'>
                 {popularMovies.results.map((movie) => (
+                    <CardPopularMovie
+                        genreList={genre}
+                        movieGenre={movie.genre_ids}
+                        movieName={movie.title}
+                        movieReleaseDate={movie.release_date}
+                        moviePoster={movie.poster_path}
+                        movieResume={movie.overview}
+                    />
+                ))}
+            </ul>
+        )
+    }
+}
+
+export function TopRatedMovieWrapper() {
+
+    const [genre, setGenre] = useFetcherGenreList();
+    const [topRatedMovies, setTopRatedMovies] = useFetcherTopRatedMovies();
+
+    useEffect(() => {
+        setGenre();
+        setTopRatedMovies();
+    }, []);
+
+    if (!genre || !topRatedMovies) {
+        return <h1 className='title-1'>Chargement...</h1>
+    }
+    else {
+        return (
+            <div className='movie-wrapper'>
+                {topRatedMovies.results.map((movie) => (
+                    <CardPopularMovie
+                        genreList={genre}
+                        movieGenre={movie.genre_ids}
+                        movieName={movie.title}
+                        movieReleaseDate={movie.release_date}
+                        moviePoster={movie.poster_path}
+                        movieResume={movie.overview}
+                    />
+                ))};
+            </div>
+        )
+    }
+}
+
+export function UpcommingMovieWrapper() {
+
+    const [movies, setMovie] = useFetcherUpcomingMovies();
+    const [genre, setGenre] = useFetcherGenreList();
+
+    useEffect(() => {
+        setMovie();
+        setGenre();
+    }, []);
+
+    if (!movies || !genre) {
+        return <h1 className='title-1'>Chargement...</h1>
+    }
+    else {
+        return (
+            <div className='movie-wrapper'>
+                {movies.results.map((movie) => (
+                    <CardPopularMovie
+                        genreList={genre}
+                        movieGenre={movie.genre_ids}
+                        movieName={movie.title}
+                        movieReleaseDate={movie.release_date}
+                        moviePoster={movie.poster_path}
+                        movieResume={movie.overview} />
+                ))}
+            </div>
+        )
+    }
+}
+
+export function ListMovieByGenre({ url }: ListMovieByGenreProps) {
+    const [movies, setMovie] = useFetcherMovieByGenre(url);
+    const [genre, setGenre] = useFetcherGenreList();
+
+    useEffect(() => {
+        setMovie();
+        setGenre();
+    }, [])
+
+    if (!movies || !genre) {
+        <h1 className='title-1'>Chargement...</h1>
+    }
+    else {
+        return (
+            <div className='movie-wrapper'>
+                {movies.results.map((movie) => (
                     <CardPopularMovie
                         genreList={genre}
                         movieGenre={movie.genre_ids}
@@ -35,64 +135,35 @@ export function PopularMovieWrapper() {
     }
 }
 
-export function TopRatedMovieWrapper(){
+export function ListSeriesByGenre({ url }: ListSeriesByGenreProps) {
+    const [series, setSerie] = useFetcherSeriesByGenre(url);
+    const [genre, setGenre] = useFetcherSeriesGenre();
 
-    const [genre, setGenre] = useFetcherGenreList();
-    const [topRatedMovies, setTopRatedMovies] = useFetcherTopRatedMovies();
+    console.log(`ListSeriesByGenre = ${series?.results[0].genre_ids}`);
 
     useEffect(() => {
+        setSerie();
         setGenre();
-        setTopRatedMovies();
-    }, []);
+    }, [])
 
-    if(!genre || !topRatedMovies){
-        return <h1 className='title-1'>Chargement...</h1>
+    if (!series || !genre) {
+        <h1 className='title-1'>Chargement...</h1>
     }
-    else{
-        return(
+    else {
+        return (
             <div className='movie-wrapper'>
-                {topRatedMovies.results.map((movie) => (
-                    <CardPopularMovie
-                    genreList={genre}
-                    movieGenre={movie.genre_ids}
-                    movieName={movie.title}
-                    movieReleaseDate={movie.release_date}
-                    moviePoster={movie.poster_path}
-                    movieResume={movie.overview} 
+                {series.results.map((serie) => (
+                    <CardSeries
+                        genreList={genre}
+                        serieGenre={serie.genre_ids}
+                        serieName={serie.name}
+                        serieReleaseDate={serie.release_date}
+                        seriePoster={serie.poster_path}
+                        serieResume={serie.overview}
                     />
-                ))};
-            </div>
-        )
-    }
-}
-
-export function UpcommingMovieWrapper(){
-
-    const [movies, setMovie] = useFetcherUpcomingMovies();
-    const [genre, setGenre] = useFetcherGenreList();
-
-    useEffect(() => {
-        setMovie();
-        setGenre();
-    }, []);
-
-    if(!movies || !genre){
-        return <h1 className='title-1'>Chargement...</h1>
-    }
-    else{
-        return(
-            <div className='movie-wrapper'>
-                {movies.results.map((movie) => (
-                    <CardPopularMovie
-                    genreList={genre}
-                    movieGenre={movie.genre_ids}
-                    movieName={movie.title}
-                    movieReleaseDate={movie.release_date}
-                    moviePoster={movie.poster_path}
-                    movieResume={movie.overview} /> 
                 ))}
             </div>
+
         )
     }
-
 }

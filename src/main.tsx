@@ -8,6 +8,7 @@ import { Header } from './UI/Header/Header.tsx'
 import { Footer } from './UI/Footer/Footer.tsx';
 import { Homepage } from './UI/Views/Homepage.tsx';
 import { Movies } from './UI/Views/Movies.tsx';
+import { Series } from './UI/Views/Series.tsx';
 
 
 createRoot(document.getElementById('root')!).render(
@@ -18,6 +19,7 @@ createRoot(document.getElementById('root')!).render(
       <Routes >
         <Route path='/' element={<Homepage />} />
         <Route path='/movies' element={<Movies />} />
+        <Route path='/series' element={<Series />} />
       </Routes>
       <Footer />
     </BrowserRouter>

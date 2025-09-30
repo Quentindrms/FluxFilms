@@ -18,7 +18,7 @@ export async function fetcherGenresList() {
   return data.genres;
 }
 
-export async function fetcherGenre(id: number) {
+export async function fetcherGenre() {
   const url = '';
 
   const result = await fetch(url, options);
@@ -60,5 +60,35 @@ export async function fetcherUpcomingMovies(){
 
   const result = await fetch(url, options);
   const data: UpcomingMoviesList = await result.json();
+  return data;
+}
+
+/** FetchMovie par genre */
+
+export async function fetcherMovieByGenre(fetchUrl:string){
+
+  const url = fetchUrl;
+
+  const result = await fetch(url, options);
+  const data = await result.json();
+  return data;
+}
+
+/** Séries */
+
+export async function 
+fetcherSeriesByGenre(fetchUrl:string){
+  const url = fetchUrl;
+
+  const result = await fetch(url, options);
+  const data = await result.json();
+  return data;
+}
+
+export async function fetcherSeriesGenre(){
+  const url = 'https://api.themoviedb.org/3/genre/tv/list';
+
+  const result = await fetch(url, options);
+  const data = await result.json();
   return data;
 }

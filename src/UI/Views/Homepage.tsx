@@ -1,4 +1,4 @@
-import { Card, CardInsight, CardPopularMovie } from "../Cards/Card";
+import { CardInsight } from "../Cards/Card";
 import { useFetcherPopularMovies, useFetcherGenreList, useFetcherMovieDetails } from "../../Hooks/useFetcher";
 import { useEffect } from "react";
 import { PopularMovieWrapper, TopRatedMovieWrapper, UpcommingMovieWrapper } from "../Cards/MovieWrapper";
