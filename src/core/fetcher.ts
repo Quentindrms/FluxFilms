@@ -76,7 +76,8 @@ export async function fetcherMovieByGenre(fetchUrl:string){
 
 /** Séries */
 
-export async function fetcherSeriesByGenre(fetchUrl:string){
+export async function 
+fetcherSeriesByGenre(fetchUrl:string){
   const url = fetchUrl;
 
   const result = await fetch(url, options);

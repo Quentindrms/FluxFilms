@@ -12,8 +12,6 @@ interface ListSeriesByGenreProps {
     url: string
 }
 
-interface 
-
 export function PopularMovieWrapper() {
 
     const [genre, setGenre] = useFetcherGenreList();
@@ -141,10 +139,12 @@ export function ListSeriesByGenre({ url }: ListSeriesByGenreProps) {
     const [series, setSerie] = useFetcherSeriesByGenre(url);
     const [genre, setGenre] = useFetcherSeriesGenre();
 
+    console.log(`ListSeriesByGenre = ${series?.results[0].genre_ids}`);
+
     useEffect(() => {
         setSerie();
         setGenre();
-    })
+    }, [])
 
     if (!series || !genre) {
         <h1 className='title-1'>Chargement...</h1>
@@ -152,16 +152,18 @@ export function ListSeriesByGenre({ url }: ListSeriesByGenreProps) {
     else {
         return (
             <div className='movie-wrapper'>
-                {series.results.map((movie) => (
+                {series.results.map((serie) => (
                     <CardSeries
                         genreList={genre}
-                        movieGenre={movie.genre_ids}
-                        movieName={movie.title}
-                        movieReleaseDate={movie.release_date}
-                        moviePoster={movie.poster_path}
-                        movieResume={movie.overview}
+                        serieGenre={serie.genre_ids}
+                        serieName={serie.name}
+                        serieReleaseDate={serie.release_date}
+                        seriePoster={serie.poster_path}
+                        serieResume={serie.overview}
                     />
                 ))}
             </div>
 
+        )
+    }
 }

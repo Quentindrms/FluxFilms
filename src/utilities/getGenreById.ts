@@ -1,4 +1,4 @@
-import type { MovieGenre, PopularMovieDetail, MovieGenreList } from "../core/coreType"
+import type { MovieGenre, PopularMovieDetail, MovieGenreList, SeriesGenres } from "../core/coreType"
 
 const options = {
     method: 'GET',
@@ -20,3 +20,19 @@ export function getPopularMovieGenres(idList: number[], genreList:MovieGenre[]){
     })
     return movieGenre.join(', ');
 }
+
+export function getPopularSerieGenre(idList: number[], genreList:SeriesGenres[]){
+
+    const serieGenre:string[] = []
+
+    console.log(`GenreID: ${idList}`)
+    console.log(`GenreList : ${genreList[0]}`)
+    idList.forEach((genreId) => {
+        const foundGenre = genreList.find((genre) => genre.id == genreId)
+        if (foundGenre){
+            serieGenre.push(foundGenre.name);
+        }
+    })
+    return serieGenre.join(', ');
+}
+

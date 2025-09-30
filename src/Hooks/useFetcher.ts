@@ -64,11 +64,12 @@ export function useFetcherMovieByGenre(url: string): [ListMovieByGenre | undefin
 
 /** Séries */
 
-export function useFetcherSeriesGenre(): [SeriesGenres | undefined, () => void] {
-    const [value, setGenres] = useState<SeriesGenres>();
+export function useFetcherSeriesGenre(): [SeriesGenres[] | undefined, () => void] {
+    const [value, setGenres] = useState<SeriesGenres[]>();
     async function setSeriesGenres() {
         const data = await fetcherSeriesGenre();
-        setGenres(data);
+        setGenres(data.genres);
+        console.log(data)
     }
     return [value, setSeriesGenres];
 }

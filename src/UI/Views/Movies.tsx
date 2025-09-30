@@ -1,32 +1,12 @@
-import { useFetcherGenreList, useFetcherMovieDetails, useFetcherPopularMovies } from "../../Hooks/useFetcher"
-import { Card, CardInsight } from "../Cards/Card";
-import { useEffect } from "react";
 import { ListMovieByGenre } from "../Cards/MovieWrapper";
 
 export const Movies = () => {
-
-    const [movie, setMovie] = useFetcherMovieDetails();
-    const [genre, setGenre] = useFetcherGenreList();
-    const [popularMovies, setPopularMovies] = useFetcherPopularMovies();
 
     const movieCategorieAction = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=28'
     const movieCategorieDocumentary = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=99'
     const movieCategorieScienceFiction = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=878'
     const movieCategorieThriller = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=53'
     const movieCategorieCrime = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=80'
-
-    useEffect(() => {
-        setMovie();
-        setGenre();
-        setPopularMovies();
-    }, []);
-
-    console.log(genre);
-
-    if (!movie || !genre || !popularMovies) {
-        <div>Chargement</div>
-    }
-    else {
 
         return (
             <div>
@@ -43,4 +23,3 @@ export const Movies = () => {
             </div>
         )
     }
-}
