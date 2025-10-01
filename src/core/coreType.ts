@@ -131,7 +131,7 @@ export type MovieByGenre = {
     vote_count: number,
 }
 
-export type MovieCredis = {
+export type MovieCredits = {
     id: number,
     cast: MovieCast[],
     crew: MovieCrew[],
@@ -145,7 +145,7 @@ export type MovieCast = {
     name: string,
     original_name: string,
     popularity: number,
-    profile_path: number,
+    profile_path: string,
     cast_id: number,
     character: string,
     credit_id: string,

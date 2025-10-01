@@ -92,3 +92,13 @@ export async function fetcherSeriesGenre(){
   const data = await result.json();
   return data;
 }
+
+/** Credit fetcher */
+
+export async function fetcherCreditByMovie(fetchUrl:string){
+  const url = fetchUrl;
+
+  const result = await fetch(url, options);
+  const data = await result.json();
+  return data;
+}

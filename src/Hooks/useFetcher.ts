@@ -1,9 +1,9 @@
 import { useState } from "react";
-import {type ListMovieByGenre, type MovieByGenre, type MovieDetails, type MovieGenre, type MovieGenreList, type PopularMoviesList, type SeriesGenres, type TopRatedMoviesList, type UpcomingMoviesList, type SeriesByGenreList } from "../core/coreType";
-import { fetcherMovieByGenre, fetcherMovieDetails, fetcherPopularMovies, fetcherSeriesByGenre, fetcherSeriesGenre, fetcherTopRatedMovies, fetcherUpcomingMovies } from "../core/fetcher";
+import { type ListMovieByGenre, type MovieByGenre, type MovieDetails, type MovieGenre, type MovieGenreList, type PopularMoviesList, type SeriesGenres, type TopRatedMoviesList, type UpcomingMoviesList, type SeriesByGenreList, type MovieCast, type MovieCredits } from "../core/coreType";
+import { fetcherCreditByMovie, fetcherMovieByGenre, fetcherMovieDetails, fetcherPopularMovies, fetcherSeriesByGenre, fetcherSeriesGenre, fetcherTopRatedMovies, fetcherUpcomingMovies } from "../core/fetcher";
 import { fetcherGenresList } from "../core/fetcher";
 
-export function useFetcherMovieDetails(id:number): [MovieDetails | undefined, () => void] {
+export function useFetcherMovieDetails(id: number): [MovieDetails | undefined, () => void] {
 
     const [value, setValue] = useState<MovieDetails>();
 
@@ -74,7 +74,7 @@ export function useFetcherSeriesGenre(): [SeriesGenres[] | undefined, () => void
     return [value, setSeriesGenres];
 }
 
-export function useFetcherSeriesByGenre(url:string): [SeriesByGenreList | undefined, () => void] {
+export function useFetcherSeriesByGenre(url: string): [SeriesByGenreList | undefined, () => void] {
     const [value, setSeries] = useState<SeriesByGenreList>();
     async function setSeriesByGenre() {
         const data = await fetcherSeriesByGenre(url);
@@ -83,3 +83,14 @@ export function useFetcherSeriesByGenre(url:string): [SeriesByGenreList | undefi
     return [value, setSeriesByGenre]
 }
 
+/** Casting */
+
+export function useFetcherCreditByMovie(id: number): [MovieCredits | undefined, () => void] {
+    const [value, setValue] = useState<MovieCredits>();
+    const url = ('https://api.themoviedb.org/3/movie/'+id+'/credits');
+    async function setCredit() {
+        const data = await fetcherCreditByMovie(url);
+        setValue(data);
+    }
+    return [value, setCredit];
+}
