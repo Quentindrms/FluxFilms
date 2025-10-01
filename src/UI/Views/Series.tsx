@@ -20,8 +20,7 @@ export function Series() {
             <h2 className="title-2">Séries actualités</h2>
             <ListSeriesByGenre url={serieCategorieNews}/>
             <h2 className="title-2">Séries mystères</h2>
-            <ListSeriesByGenre url={serieCategorieMystery} />
-            
+            <ListSeriesByGenre url={serieCategorieMystery} />Ò
         </div>
     )
 

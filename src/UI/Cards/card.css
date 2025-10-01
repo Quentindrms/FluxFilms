@@ -116,7 +116,8 @@
 
 .movie-card-image-insight {
     border-radius: 15px;
-    width: 15vw;
+    width: 100vw;
+    height: 30vh;
 }
 
 .movie-card-name-insight {

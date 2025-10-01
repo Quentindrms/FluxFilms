@@ -24,8 +24,8 @@ export type MovieDetails = {
     tagline: string,
     title: string,
     video: boolean,
-    voteAverage: number,
-    voteCount: number,
+    vote_average: number,
+    vote_count: number,
 }
 
 export type PopularMovieDetail = {
@@ -129,6 +129,39 @@ export type MovieByGenre = {
     video: boolean,
     vote_average: number,
     vote_count: number,
+}
+
+export type MovieCredis = {
+    id: number,
+    cast: MovieCast[],
+    crew: MovieCrew[],
+}
+
+export type MovieCast = {
+    adult: boolean,
+    gender: number,
+    id: number,
+    known_for_department: number,
+    name: string,
+    original_name: string,
+    popularity: number,
+    profile_path: number,
+    cast_id: number,
+    character: string,
+    credit_id: string,
+    order: number,
+}
+
+export type MovieCrew = {
+    adult: boolean,
+    gender: number,
+    id: number,
+    known_for_departement: string,
+    popularity: number,
+    profile_path: string,
+    credit_id: string,
+    department: string,
+    job: string,
 }
 
 /** Genres */

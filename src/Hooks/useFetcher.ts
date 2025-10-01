@@ -3,12 +3,12 @@ import {type ListMovieByGenre, type MovieByGenre, type MovieDetails, type MovieG
 import { fetcherMovieByGenre, fetcherMovieDetails, fetcherPopularMovies, fetcherSeriesByGenre, fetcherSeriesGenre, fetcherTopRatedMovies, fetcherUpcomingMovies } from "../core/fetcher";
 import { fetcherGenresList } from "../core/fetcher";
 
-export function useFetcherMovieDetails(): [MovieDetails | undefined, () => void] {
+export function useFetcherMovieDetails(id:number): [MovieDetails | undefined, () => void] {
 
     const [value, setValue] = useState<MovieDetails>();
 
     async function setMovie() {
-        const data = await fetcherMovieDetails(11);
+        const data = await fetcherMovieDetails(id);
         setValue(data);
     };
 
