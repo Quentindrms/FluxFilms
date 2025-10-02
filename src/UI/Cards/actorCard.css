@@ -1,14 +1,15 @@
 @import url('../../var.css');
 
-.actor-wrapper{
-    display: grid;
-    grid-column: 3;
-    grid-template-columns: repeat(3, 20vw);
+.actor-wrapper {
+    display: flex;
+    flex-direction: row;
+    overflow-y: scroll;
     gap: 0.55vw;
     justify-content: center;
+    align-items: center;
 }
 
-.actor-card{
+.actor-card {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,7 +18,7 @@
     text-align: center;
 }
 
-.actor-card-image{
+.actor-card-image {
     max-width: 10vw;
-    max-height: 10vw;
+    height: 10vw;
 }

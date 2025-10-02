@@ -1,3 +1,5 @@
+import './card.css';
+
 import { useEffect } from "react";
 import { useFetcherGenreList, useFetcherMovieRecommandation } from "../../Hooks/useFetcher";
 import { RecommendedMovieCard } from "./RecommendedMovieCard";
@@ -25,6 +27,7 @@ export function RecommendedMovieWrapper({ id }: RecommendedMovieWrapperProps) {
                 {movies.results.map((movie) => {
                     const movieGenres = getPopularMovieGenres(movie.genre_ids, genres);
                     return (
+                        
                         <RecommendedMovieCard
                             key={movie.id}
                             id={movie.id}

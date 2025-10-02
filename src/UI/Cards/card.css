@@ -162,3 +162,47 @@
     color: var(--seasalt);
     font-family: var(--font-family-secondary);
 }
+
+/** Recommended movie card **/
+
+.recommended-movie-wrapper{
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    gap: 0.95vw;
+}
+
+.recommended-movie-link{
+    text-decoration: none;
+}
+
+.recommended-movie-name{
+    font-family: var(--font-family-secondary);
+    color: var(--aureolin-light)
+}
+
+.recommended-movie-card{
+    max-width: 25vw;
+}
+
+.recommended-movie-image{
+    max-width: 12vw;
+}
+
+.recommended-movie-overview{
+    max-height: 12.5vh;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    font-family: var(--font-family-secondary);
+    line-height: 20px;
+}
+
+.recommended-movie-release{
+    font-family: var(--font-family-secondary-italic);
+}
+
+.recommended-movie-genres{
+    font-family: var(--font-family-secondary-bold);
+    color: var(--cyclamen-dark)
+}

@@ -1,3 +1,4 @@
+import './card.css';
 
 interface RecommendedMovieCardProps{
     id: number
@@ -14,7 +15,7 @@ export function RecommendedMovieCard({id, title, overview, release_date, genres,
     const posterLink = ('https://image.tmdb.org/t/p/original/'+posterPath)
 
     return (
-        <div>
+        <div className="recommended-movie-card">
             <a className='recommended-movie-link' href={movieLink}>
             <img className='recommended-movie-image' src={posterLink}></img>
             <p className="recommended-movie-name">{title}</p>
