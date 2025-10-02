@@ -1,0 +1,16 @@
+@import url(../../../var.css);
+
+.season-card{
+    max-width: fit-content;
+    display: flex;
+    flex-direction: row;
+}
+
+.season-poster{
+    max-width: 15vw;
+}
+
+.season-text{
+    font-family: var(--font-family-primary);
+    color: var(--seasalt)
+}

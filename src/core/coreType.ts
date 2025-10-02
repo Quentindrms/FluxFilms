@@ -243,6 +243,7 @@ export type SerieDetails = {
     origin_country: string[],
     production_compagnies: ProductionCompagnies[],
     production_countries: ProductionCountries[],
+    seasons: Seasons[],
     spoken_language: SpokenLanguages[]
     status: string,
     tagline: string,
@@ -266,6 +267,31 @@ export type SeriesByGenre = {
     video: boolean,
     vote_average: number,
     vote_count: number,
+}
+
+export type SerieRecommendation = {
+    page: number,
+    results: SerieRecommended[],
+    total_pages: number,
+    total_results: number,
+}
+
+export type SerieRecommended = {
+    adult: boolean,
+    backdrop_path: string,
+    id: number,
+    name: string,
+    original_language: string,
+    original_name: string,
+    overview: string,
+    poster_path: string,
+    media_type: string,
+    genre_id: number[],
+    popularity: number,
+    first_air_date: string,
+    vote_average: number,
+    vote_count: number,
+    origin_country: string[]
 }
 
 export type SeriesByGenreList = {

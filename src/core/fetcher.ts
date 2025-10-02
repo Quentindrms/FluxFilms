@@ -76,8 +76,8 @@ export async function fetcherMovieByGenre(fetchUrl: string) {
 
 /** Séries */
 
-export async function fetcherSerieDetails(id:number){
-  const url = ('https://api.themoviedb.org/3/tv/'+id);
+export async function fetcherSerieDetails(id: number) {
+  const url = ('https://api.themoviedb.org/3/tv/' + id);
 
   const result = await fetch(url, options);
   const data = await result.json();
@@ -96,6 +96,12 @@ export async function
 export async function fetcherSeriesGenre() {
   const url = 'https://api.themoviedb.org/3/genre/tv/list';
 
+  const result = await fetch(url, options);
+  const data = await result.json();
+  return data;
+}
+
+export async function serieRecommendation(url: string) {
   const result = await fetch(url, options);
   const data = await result.json();
   return data;

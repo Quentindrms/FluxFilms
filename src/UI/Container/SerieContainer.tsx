@@ -1,6 +1,9 @@
+import './serieContainer.css'
+
 import { useEffect } from "react";
-import type { SerieDetails } from "../../core/coreType"
-import { useFetcherSerieDetails } from "../../Hooks/useFetcher"
+import { useFetcherSerieDetails, useFetcherSerieRecommendation } from "../../Hooks/useFetcher"
+import { RecommendedSerieCard } from "../Cards/series/RecommendedSerieCard";
+import { SeasonCard } from "../Cards/series/SeasonCard";
 
 interface serieDetailsContainerProps {
     id: number;
@@ -8,35 +11,73 @@ interface serieDetailsContainerProps {
 
 export function SerieContainer({ id }: serieDetailsContainerProps) {
 
+    const urlRecommendation = (`https://api.themoviedb.org/3/tv/${id}/recommendations`);
+
     const [serie, setSerie] = useFetcherSerieDetails(id);
+    const [recommendations, setRecommendation] = useFetcherSerieRecommendation(urlRecommendation);
 
     useEffect(() => {
         setSerie();
+        setRecommendation();
     }, [])
     console.log(serie);
-    if (!serie) {
+    if (!serie || !recommendations) {
         <h1 className="title-1">La série demandée n'existe pas</h1>
     }
     else {
         const backdropImage: string = ('https://image.tmdb.org/t/p/original' + serie.backdrop_path);
-        console.log(backdropImage);
+        console.log(`Recommandation : ${recommendations.results[0]}`)
         return (
             <div>
                 <h2 className="title-2">{serie.name}</h2>
-                <img src={backdropImage}></img>
+                <div className='serie-container-poster' style={{ backgroundImage: `url(${backdropImage})` }}> </div>
                 <div className="serie-detail-about">
-                    <p>Genre : </p>
+                    <p className="serie-tagline">Tagline : {serie.tagline}</p>
                 </div>
                 <div className="serie-detail-air">
-                    <p>Première diffusion : {serie.first_air_date}</p>
-                    <p>Prochaine diffusion : {serie.next_episode_to_air}</p>
-                    <p>Dernière diffusion : {serie.last_air_date}</p>
-                    <p>Statut : {serie.status}</p>
+                    <p className='serie-detail-text'>Première diffusion : {serie.first_air_date}</p>
+                    <p className='serie-detail-text'>Prochaine diffusion : {serie.next_episode_to_air}</p>
+                    <p className='serie-detail-text'>Dernière diffusion : {serie.last_air_date}</p>
+                    <p className='serie-detail-text'>Statut : {serie.status}</p>
                     <p>: {serie.in_production}</p>
                 </div>
                 <div className="serie-detail-episode">
-                    <p>Nombre d'épisode : {serie.number_of_episodes}</p>
-                    <p>Nombre de saisons : {serie.number_of_seasons}</p>
+                    <p className='serie-detail-text'>Nombre d'épisode : {serie.number_of_episodes}</p>
+                    <p className='serie-detail-text'>Nombre de saisons : {serie.number_of_seasons}</p>
+                </div>
+
+                <div className="serie-detail-seasons">
+                    {serie.seasons.map((season) => {
+                        return (<SeasonCard
+                            air_date={season.air_date}
+                            episode_count={season.episode_count}
+                            name={season.name}
+                            id={season.id}
+                            overview={season.overview}
+                            poster_path={season.poster_path}
+                            season_number={season.season_number}
+                            vote_average={season.vote_average}
+                        />)
+                    })}
+                </div>
+
+                <h2 className="title-2">Recommandation</h2>
+                <div className="recommended-series-wrapper">
+                    {recommendations.results.map((rec, index) => {
+                        console.log(rec);
+                        return (
+                            <RecommendedSerieCard
+                                id={rec.id}
+                                name={rec.name}
+                                genre_id={rec.genre_id}
+                                popularity={rec.popularity}
+                                poster_path={rec.poster_path}
+                                key={index}
+                            />
+                        )
+                    })}
+                </div>
+                <div>
                 </div>
 
             </div>

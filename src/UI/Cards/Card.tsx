@@ -109,21 +109,24 @@ export function CardInsight({ movieId, movieName, movieResume, movieGenre, movie
     )
 }
 
-export function CardSeries({ serieName, serieResume, serieGenre, serieReleaseDate, genreList, seriePoster }: CardSeriesProps) {
+export function CardSeries({ serieId, serieName, serieResume, serieGenre, serieReleaseDate, genreList, seriePoster }: CardSeriesProps) {
     const genres = getPopularSerieGenre(serieGenre, genreList);
     const poster: string = ('https://image.tmdb.org/t/p/original' + seriePoster)
+    const link: string = ('/serie/'+serieId)
 
     return (
         <li className="movie-card-popular">
-            <img className='movie-card-image' src={poster} alt=""></img>
-            <div className='movie-card-insight-body'>
-                <h3 className="movie-card-name">{serieName}</h3>
-                <p className='movie-card-resume'>{serieResume}</p>
-                <div className='movie-card-footer'>
-                    <p className='movie-card-genre'>{genres}</p>
-                    <p className='movie-card-release'>{serieReleaseDate}</p>
+            <a className='movie-card-link' href={link}>
+                <img className='movie-card-image' src={poster} alt=""></img>
+                <div className='movie-card-insight-body'>
+                    <h3 className="movie-card-name">{serieName}</h3>
+                    <p className='movie-card-resume'>{serieResume}</p>
+                    <div className='movie-card-footer'>
+                        <p className='movie-card-genre'>{genres}</p>
+                        <p className='movie-card-release'>{serieReleaseDate}</p>
+                    </div>
                 </div>
-            </div>
+            </a>
         </li>
     )
 
