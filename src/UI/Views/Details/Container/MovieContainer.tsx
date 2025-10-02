@@ -35,11 +35,7 @@ export function MovieContainer({ id }: MovieContainerProps) {
                 <p className="movie-container-paragraph">Note : <span className='movie-container-style-cylamen-light'>{Math.round(movie.vote_average*10)}/10</span></p>
                 <p className='movie-container-genre'>Genres : <span className='movie-container-style-cylamen-dark'>{genresList}</span></p>
             </div>
-
-            <div>
                 <ActorCard movieId={id} />
-            </div>
-
             </div>
         )
     }

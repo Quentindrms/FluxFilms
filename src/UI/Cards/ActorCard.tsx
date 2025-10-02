@@ -1,3 +1,5 @@
+import './actorCard.css'
+
 import { useEffect } from "react";
 import { useFetcherCreditByMovie } from "../../Hooks/useFetcher"
 
@@ -19,10 +21,13 @@ export function ActorCard({ movieId }: ActorCardProps) {
     }
     else {
         return (
-            <div>
-                <img src={profile} alt=''></img>
-                <p className="actor-card-character">Jean-Michel dans le rôle de {credits.cast[0].character}</p>
-
+            <div className='actor-wrapper'>
+                {credits.cast.map((actor, index) => (
+                    <div className="actor-card">
+                    <img className='actor-card-image' src={profile+actor.profile_path}></img>
+                    <p className="actor-card-character">{credits.cast[index].name} dans le rôle de {credits.cast[index].character}</p>
+                    </div>
+                    ))}
             </div>
         )
     }

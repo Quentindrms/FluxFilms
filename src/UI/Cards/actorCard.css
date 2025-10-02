@@ -1,0 +1,23 @@
+@import url('../../var.css');
+
+.actor-wrapper{
+    display: grid;
+    grid-column: 3;
+    grid-template-columns: repeat(3, 20vw);
+    gap: 0.55vw;
+    justify-content: center;
+}
+
+.actor-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 20vw;
+    text-align: center;
+}
+
+.actor-card-image{
+    max-width: 10vw;
+    max-height: 10vw;
+}
