@@ -10,6 +10,7 @@ import { Homepage } from './UI/Views/Homepage.tsx';
 import { Movies } from './UI/Views/Movies.tsx';
 import { Series } from './UI/Views/Series.tsx';
 import { MovieDetails } from './UI/Views/Details/MovieDetails.tsx';
+import { SerieDetais } from './UI/Views/Details/SerieDetails.tsx';
 
 
 
@@ -23,6 +24,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path='/movies' element={<Movies />} />
         <Route path='/series' element={<Series />} />
         <Route path='/movie/:id' element={<MovieDetails />}/>
+        <Route path='/serie/:id' element={<SerieDetais />}/>
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { type ListMovieByGenre, type MovieByGenre, type MovieDetails, type MovieGenre, type MovieGenreList, type PopularMoviesList, type SeriesGenres, type TopRatedMoviesList, type UpcomingMoviesList, type SeriesByGenreList, type MovieCast, type MovieCredits, type MovieRecommandations } from "../core/coreType";
-import { fetcherCreditByMovie, fetcherMovieByGenre, fetcherMovieDetails, fetcherMovieRecommandation, fetcherPopularMovies, fetcherSeriesByGenre, fetcherSeriesGenre, fetcherTopRatedMovies, fetcherUpcomingMovies } from "../core/fetcher";
+import { type ListMovieByGenre, type MovieByGenre, type MovieDetails, type MovieGenre, type MovieGenreList, type PopularMoviesList, type SeriesGenres, type TopRatedMoviesList, type UpcomingMoviesList, type SeriesByGenreList, type MovieCast, type MovieCredits, type MovieRecommandations, type SerieDetails } from "../core/coreType";
+import { fetcherCreditByMovie, fetcherMovieByGenre, fetcherMovieDetails, fetcherMovieRecommandation, fetcherPopularMovies, fetcherSerieDetails, fetcherSeriesByGenre, fetcherSeriesGenre, fetcherTopRatedMovies, fetcherUpcomingMovies } from "../core/fetcher";
 import { fetcherGenresList } from "../core/fetcher";
 
 export function useFetcherMovieDetails(id: number): [MovieDetails | undefined, () => void] {
@@ -64,12 +64,20 @@ export function useFetcherMovieByGenre(url: string): [ListMovieByGenre | undefin
 
 /** Séries */
 
+export function useFetcherSerieDetails(id:number): [SerieDetails | undefined, () => void]{
+    const [value, setValue] = useState<SerieDetails>();
+    async function setSerieDetaisl(){
+        const data = await fetcherSerieDetails(id);
+        setValue(data);
+    }
+    return [value, setSerieDetaisl]
+}
+
 export function useFetcherSeriesGenre(): [SeriesGenres[] | undefined, () => void] {
     const [value, setGenres] = useState<SeriesGenres[]>();
     async function setSeriesGenres() {
         const data = await fetcherSeriesGenre();
         setGenres(data.genres);
-        console.log(data)
     }
     return [value, setSeriesGenres];
 }

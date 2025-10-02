@@ -222,33 +222,33 @@ export type SpokenLanguages = {
 
 /** Series */
 
-export type SeriesDetails = {
+export type SerieDetails = {
     adult: boolean,
-    backdropPath: string,
-    createdBy: CreatedBy[],
-    episodeRunTime: number[],
-    firstAirDate: string,
-    genre: SeriesGenres[],
+    backdrop_path: string,
+    created_by: CreatedBy[],
+    episode_run_time: number[],
+    first_air_date: string,
+    genres: SeriesGenres[],
     homepage: string,
     id: number,
-    inProduction: boolean,
+    in_production: boolean,
     languages: string,
-    lastAirDate: string,
-    lastEpisodeToAir: string,
+    last_air_date: string,
+    last_episode_to_air: string,
     name: string,
-    nextEpisodeToAir: string,
+    next_episode_to_air: string,
     networks: Networks[],
-    numberOfEpisodes: number,
-    numberOfSeasons: number,
-    originCountry: string[],
-    productionCompagnies: ProductionCompagnies[],
-    productionCountries: ProductionCountries[],
-    spokenLanguage: SpokenLanguages[]
+    number_of_episodes: number,
+    number_of_seasons: number,
+    origin_country: string[],
+    production_compagnies: ProductionCompagnies[],
+    production_countries: ProductionCountries[],
+    spoken_language: SpokenLanguages[]
     status: string,
     tagline: string,
     type: string,
-    voteAverage: number,
-    voteCount: number,
+    vote_average: number,
+    vote_count: number,
 }
 
 export type SeriesByGenre = {
@@ -277,10 +277,10 @@ export type SeriesByGenreList = {
 
 export type CreatedBy = {
     id: number,
-    creditId: string,
+    credit_id: string,
     name: string,
     gender: number,
-    profilePath: string,
+    profile_path: string,
 }
 
 export type SeriesGenres = {
@@ -294,29 +294,29 @@ export type LastEpisodeToAir = {
     overview: string,
     vote_average: number,
     vote_count: number,
-    airDate: string,
-    epsiodeNumber: number,
-    productionCode: string,
+    air_date: string,
+    epsiode_number: number,
+    production_code: string,
     runtime: number,
-    seasonNumber: number,
+    season_number: number,
     showId: number,
-    stillPath: string,
+    still_path: string,
 }
 
 export type Networks = {
     id: number,
     logoPath: string,
     name: string,
-    originCountry: string,
+    origin_country: string,
 }
 
 export type Seasons = {
-    airDate: string,
-    episodeCount: number,
+    air_date: string,
+    episode_count: number,
     id: number,
     name: string,
     overview: string,
-    posterPath: string,
-    seasonNumber: string,
-    voteAverage: number
+    poster_path: string,
+    season_number: string,
+    vote_average: number
 }
