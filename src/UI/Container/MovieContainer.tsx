@@ -1,9 +1,9 @@
 import './movieContainer.css';
-import { getPopularMovieGenres } from '../../../../utilities/getGenreById';
 
 import { useEffect } from "react";
-import { useFetcherGenreList, useFetcherMovieDetails } from "../../../../Hooks/useFetcher";
-import { ActorCard } from '../../../Cards/ActorCard';
+import {useFetcherMovieDetails } from "../../Hooks/useFetcher";
+import { ActorCard } from '../Cards/ActorCard';
+import { RecommendedMovieWrapper } from '../Cards/RecommendedMovieWrapper';
 
 interface MovieContainerProps {
     id: number,
@@ -27,15 +27,17 @@ export function MovieContainer({ id }: MovieContainerProps) {
         return (
             <div>
             <div>
-                <h2 className="movie-container-title-2">{'' + movie.title}</h2>
+                <h2 className="movie-container-title-2">{movie.title}</h2>
                 <div className='movie-container-poster' style={{ backgroundImage: `url(${poster})` }}> </div>
                 <p className='movie-container-overview'>{movie.overview}</p>
                 <p className='movie-container-paragraph'>Date de sortie : {movie.release_date}</p>
                 <p className='movie-container-paragraph'>Durée : {movie.runtime} minutes</p>
-                <p className="movie-container-paragraph">Note : <span className='movie-container-style-cylamen-light'>{Math.round(movie.vote_average*10)}/10</span></p>
+                <p className="movie-container-paragraph">Note : <span className='movie-container-style-cylamen-light'>{Math.round(movie.vote_average*10)}/100</span></p>
                 <p className='movie-container-genre'>Genres : <span className='movie-container-style-cylamen-dark'>{genresList}</span></p>
+                <p className='movie-container-budget'>Budget : {movie.budget} dollars</p>
             </div>
                 <ActorCard movieId={id} />
+                <RecommendedMovieWrapper id={id} />
             </div>
         )
     }

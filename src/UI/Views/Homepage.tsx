@@ -25,6 +25,7 @@ export const Homepage = () => {
             <h2 className='title-2'>À l'affiche</h2>
 
             <CardInsight
+                movieId={popularMovies.results[random].id}
                 movieName={popularMovies.results[random].title}
                 movieResume={popularMovies.results[random].overview}
                 movieGenre={popularMovies.results[random].genre_ids}

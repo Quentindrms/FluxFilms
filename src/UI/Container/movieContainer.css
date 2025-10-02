@@ -1,4 +1,4 @@
-@import url('../../../../var.css');
+@import url('../../var.css');
 
 .movie-container-paragraph {
     font-family: var(--font-family-secondary);

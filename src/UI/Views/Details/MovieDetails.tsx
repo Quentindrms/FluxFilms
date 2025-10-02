@@ -1,5 +1,5 @@
 import { useParams } from "react-router"
-import { MovieContainer } from "./Container/MovieContainer";
+import { MovieContainer } from "../../Container/MovieContainer";
 
 export function MovieDetails() {
 

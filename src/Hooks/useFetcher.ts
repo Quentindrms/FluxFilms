@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { type ListMovieByGenre, type MovieByGenre, type MovieDetails, type MovieGenre, type MovieGenreList, type PopularMoviesList, type SeriesGenres, type TopRatedMoviesList, type UpcomingMoviesList, type SeriesByGenreList, type MovieCast, type MovieCredits } from "../core/coreType";
-import { fetcherCreditByMovie, fetcherMovieByGenre, fetcherMovieDetails, fetcherPopularMovies, fetcherSeriesByGenre, fetcherSeriesGenre, fetcherTopRatedMovies, fetcherUpcomingMovies } from "../core/fetcher";
+import { type ListMovieByGenre, type MovieByGenre, type MovieDetails, type MovieGenre, type MovieGenreList, type PopularMoviesList, type SeriesGenres, type TopRatedMoviesList, type UpcomingMoviesList, type SeriesByGenreList, type MovieCast, type MovieCredits, type MovieRecommandations } from "../core/coreType";
+import { fetcherCreditByMovie, fetcherMovieByGenre, fetcherMovieDetails, fetcherMovieRecommandation, fetcherPopularMovies, fetcherSeriesByGenre, fetcherSeriesGenre, fetcherTopRatedMovies, fetcherUpcomingMovies } from "../core/fetcher";
 import { fetcherGenresList } from "../core/fetcher";
 
 export function useFetcherMovieDetails(id: number): [MovieDetails | undefined, () => void] {
@@ -93,4 +93,16 @@ export function useFetcherCreditByMovie(id: number): [MovieCredits | undefined, 
         setValue(data);
     }
     return [value, setCredit];
+}
+
+/** Movie recommandation */
+
+export function useFetcherMovieRecommandation(id: number): [MovieRecommandations | undefined, () => void]{
+    const [value, setValue] = useState<MovieRecommandations>();
+    const url = ('https://api.themoviedb.org/3/movie/'+id+'/recommendations');
+    async function setMovieRecommandation(){
+        const data = await fetcherMovieRecommandation(url);
+        setValue(data);
+    }
+    return [value, setMovieRecommandation]
 }

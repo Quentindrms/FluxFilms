@@ -8,6 +8,12 @@
     overflow-x: scroll;
 }
 
+.movie-card-link{
+    text-decoration: none;
+}
+
+
+
 .movie-card {
     background-color: var(--space-cadet);
     border: 1px solid var(--seasalt);

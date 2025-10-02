@@ -102,3 +102,12 @@ export async function fetcherCreditByMovie(fetchUrl:string){
   const data = await result.json();
   return data;
 }
+
+/** Movie recommandation fetcher */
+
+export async function fetcherMovieRecommandation(fetchUrl: string){
+  const url = fetchUrl;
+  const result = await fetch(url, options);
+  const data = await result.json();
+  return data;
+}
