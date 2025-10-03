@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { type ListMovieByGenre, type MovieByGenre, type MovieDetails, type MovieGenre, type MovieGenreList, type PopularMoviesList, type SeriesGenres, type TopRatedMoviesList, type UpcomingMoviesList, type SeriesByGenreList, type MovieCast, type MovieCredits, type MovieRecommandations, type SerieDetails, type SerieRecommendation } from "../core/coreType";
-import { fetcherCreditByMovie, fetcherMovieByGenre, fetcherMovieDetails, fetcherMovieRecommandation, fetcherPopularMovies, fetcherSerieDetails, fetcherSeriesByGenre, fetcherSeriesGenre, fetcherTopRatedMovies, fetcherUpcomingMovies, serieRecommendation } from "../core/fetcher";
+import { type ListMovieByGenre, type MovieByGenre, type MovieDetails, type MovieGenre, type MovieGenreList, type PopularMoviesList, type SeriesGenres, type TopRatedMoviesList, type UpcomingMoviesList, type SeriesByGenreList, type MovieCast, type MovieCredits, type MovieRecommandations, type SerieDetails, type SerieRecommendation, type ActorDetails } from "../core/coreType";
+import { fetcherActorDetails, fetcherCreditByMovie, fetcherMovieByGenre, fetcherMovieDetails, fetcherMovieRecommandation, fetcherPopularMovies, fetcherSerieDetails, fetcherSeriesByGenre, fetcherSeriesGenre, fetcherTopRatedMovies, fetcherUpcomingMovies, serieRecommendation } from "../core/fetcher";
 import { fetcherGenresList } from "../core/fetcher";
 
 export function useFetcherMovieDetails(id: number): [MovieDetails | undefined, () => void] {
@@ -122,4 +122,16 @@ export function useFetcherMovieRecommandation(id: number): [MovieRecommandations
         setValue(data);
     }
     return [value, setMovieRecommandation]
+}
+
+/** Actor details */
+
+export function useFetcherActorDetails(id:number): [ActorDetails | undefined, () => void]{
+
+    const [value, setValue] = useState<ActorDetails>();
+    async function setActorDetails(){
+        const data = await fetcherActorDetails(id);
+        setValue(data);
+    }
+    return [value, setActorDetails]
 }
