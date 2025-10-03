@@ -13,7 +13,7 @@ export function ActorCard({ movieId }: ActorCardProps) {
 
     useEffect(() => {
         setCredits();
-    }, [])
+    })
 
     const profile: string = ('https://image.tmdb.org/t/p/original')
     if (!credits?.cast) {
