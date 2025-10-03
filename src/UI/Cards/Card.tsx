@@ -1,9 +1,8 @@
 import './card.css'
-import { type MovieGenre, type SeriesByGenreList, type SeriesGenres } from '../../core/coreType'
+import { type MovieGenre, type SeriesGenres } from '../../core/coreType'
 import { getPopularMovieGenres, getPopularSerieGenre } from '../../utilities/getGenreById'
 
 interface CardProps {
-    movieId: number,
     movieName: string,
     movieResume: string,
     movieGenre: MovieGenre[],
@@ -22,7 +21,6 @@ interface CardPopularMovieProps {
 }
 
 interface CardInsightProps {
-    movieId: number,
     movieName: string,
     movieResume: string,
     movieGenre: number[],
@@ -42,7 +40,7 @@ interface CardSeriesProps {
 }
 
 
-export function Card({ movieId, movieName, movieResume, movieGenre, movieReleaseDate, moviePoster }: CardProps) {
+export function Card({movieName, movieResume, movieGenre, movieReleaseDate, moviePoster }: CardProps) {
 
     const genreList = movieGenre.map((genre) => genre.name).join(', ');
     const poster: string = ('https://image.tmdb.org/t/p/original' + moviePoster)
@@ -87,7 +85,7 @@ export function CardPopularMovie({ movieId, movieName, movieResume, movieGenre, 
 
 }
 
-export function CardInsight({ movieId, movieName, movieResume, movieGenre, movieReleaseDate, genreList, moviePoster }: CardInsightProps) {
+export function CardInsight({movieName, movieResume, movieGenre, movieReleaseDate, genreList, moviePoster }: CardInsightProps) {
 
     const genres = getPopularMovieGenres(movieGenre, genreList);
     const poster: string = ('https://image.tmdb.org/t/p/original' + moviePoster)

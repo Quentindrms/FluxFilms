@@ -4,12 +4,11 @@ interface RecommendedSerieCardProps {
     id: number,
     name: string,
     poster_path: string,
-    genre_id: number[],
     popularity: number,
     seriesGenres: string,
 }
 
-export function RecommendedSerieCard({ id, name, poster_path, genre_id, popularity, seriesGenres }: RecommendedSerieCardProps) {
+export function RecommendedSerieCard({ id, name, poster_path, popularity, seriesGenres }: RecommendedSerieCardProps) {
 
     const serieLink = ('/serie/' + id);
     const posterLink = ('https://image.tmdb.org/t/p/original' + poster_path)

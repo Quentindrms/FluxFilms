@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { type ListMovieByGenre, type MovieByGenre, type MovieDetails, type MovieGenre, type MovieGenreList, type PopularMoviesList, type SeriesGenres, type TopRatedMoviesList, type UpcomingMoviesList, type SeriesByGenreList, type MovieCast, type MovieCredits, type MovieRecommandations, type SerieDetails, type SerieRecommendation, type ActorDetails } from "../core/coreType";
+import { type ListMovieByGenre, type MovieDetails, type MovieGenre, type PopularMoviesList, type SeriesGenres, type TopRatedMoviesList, type UpcomingMoviesList, type SeriesByGenreList, type MovieCredits, type MovieRecommandations, type SerieDetails, type SerieRecommendation, type ActorDetails } from "../core/coreType";
 import { fetcherActorDetails, fetcherCreditByMovie, fetcherMovieByGenre, fetcherMovieDetails, fetcherMovieRecommandation, fetcherPopularMovies, fetcherSerieDetails, fetcherSeriesByGenre, fetcherSeriesGenre, fetcherTopRatedMovies, fetcherUpcomingMovies, serieRecommendation } from "../core/fetcher";
 import { fetcherGenresList } from "../core/fetcher";
 

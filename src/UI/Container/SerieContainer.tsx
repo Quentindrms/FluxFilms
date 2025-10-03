@@ -72,7 +72,6 @@ export function SerieContainer({ id }: serieDetailsContainerProps) {
                             <RecommendedSerieCard
                                 id={rec.id}
                                 name={rec.name}
-                                genre_id={rec.genres}
                                 popularity={rec.popularity}
                                 poster_path={rec.poster_path}
                                 seriesGenres={serie.genres.map((genre) => genre.name).join(', ')}

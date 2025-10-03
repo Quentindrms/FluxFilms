@@ -1,8 +1,8 @@
 import './card.css';
 import { useFetcherGenreList, useFetcherMovieByGenre, useFetcherPopularMovies, useFetcherSeriesByGenre, useFetcherSeriesGenre, useFetcherTopRatedMovies, useFetcherUpcomingMovies } from '../../Hooks/useFetcher';
 import { useEffect } from 'react';
-import { CardPopularMovie, Card, CardSeries } from './Card';
-import type { ListMovieByGenre, MovieGenre } from '../../core/coreType';
+import { CardPopularMovie, CardSeries } from './Card';
+import type { ListMovieByGenre} from '../../core/coreType';
 
 interface ListMovieByGenreProps {
     url: string
