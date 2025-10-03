@@ -22,3 +22,7 @@
     max-width: 10vw;
     height: 10vw;
 }
+
+.actor-card-link{
+    text-decoration: none;
+}

@@ -152,6 +152,23 @@ export type MovieCast = {
     order: number,
 }
 
+export type ActorDetails = {
+    adult: boolean,
+    also_known_as: string[],
+    biography: string,
+    birthday: string,
+    deathday: string,
+    gender: number,
+    homepage: string,
+    id: number,
+    imdb_id: string,
+    known_for_department: string,
+    name: string,
+    place_of_birth: string,
+    popularity: number,
+    profile_path: string,
+}
+
 export type MovieCrew = {
     adult: boolean,
     gender: number,
@@ -168,7 +185,7 @@ export type RecommendedMovie = {
     adult: boolean,
     backdrop_path: string,
     id: number,
-    title:string,
+    title: string,
     original_title: string,
     overview: string,
     poster_path: string,

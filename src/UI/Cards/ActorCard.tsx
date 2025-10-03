@@ -24,8 +24,10 @@ export function ActorCard({ movieId }: ActorCardProps) {
             <div className='actor-wrapper'>
                 {credits.cast.map((actor, index) => (
                     <div className="actor-card">
+                        <a className="actor-card-link" href={`/actor/${actor.id}`}>
                     <img className='actor-card-image' src={profile+actor.profile_path}></img>
                     <p className="actor-card-character">{credits.cast[index].name} dans le rôle de {credits.cast[index].character}</p>
+                    </a>
                     </div>
                     ))}
             </div>
