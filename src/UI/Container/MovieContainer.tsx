@@ -34,7 +34,7 @@ export function MovieContainer({ id }: MovieContainerProps) {
                     <p className='movie-container-paragraph'>Durée : {movie.runtime} minutes</p>
                     <p className="movie-container-paragraph">Note : <span className='movie-container-style-cylamen-light'>{Math.round(movie.vote_average * 10)}/100</span></p>
                     <p className='movie-container-genre'>Genres : <span className='movie-container-style-cylamen-dark'>{genresList}</span></p>
-                    <p className='movie-container-budget'>Budget : {movie.budget} dollars</p>
+                    <p className='movie-container-budget secondary-text'>Budget : {movie.budget} dollars</p>
                 </div>
                 <h2 className='title-2'>Casting</h2>
                 <ActorCard movieId={id} />

@@ -1,11 +1,27 @@
 @import '../../var.css';
 
+.serie-container{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vw;
+}
+
 .serie-container-poster{
     width: 100vw;
     height: 25vw;
     background-position: top;
+    box-shadow: -5px 5px 30px var(--cyclamen-dark);
 }
 
 .serie-detail-text{
     font-family: var(--font-family-primary);
+    font-size: 1.15rem;
+}
+
+.serie-detail-tagline{
+    font-size: 1.25rem;
+}
+
+.serie-detail-in-production{
+    color: var(--turquoise-dark)
 }

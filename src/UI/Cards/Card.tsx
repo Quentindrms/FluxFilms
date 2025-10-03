@@ -95,7 +95,7 @@ export function CardInsight({ movieId, movieName, movieResume, movieGenre, movie
     return (
         <div className="movie-card-insight">
             <div className='movie-card-insight-container-image'>
-                <img className='movie-card-image-insight' src={poster} alt=""></img>
+                <img className='movie-card-insight-image' src={poster}></img>
             </div>
             <div className='movie-card-insight-body'>
                 <h3 className="movie-card-name-insight">{movieName}</h3>
@@ -112,7 +112,7 @@ export function CardInsight({ movieId, movieName, movieResume, movieGenre, movie
 export function CardSeries({ serieId, serieName, serieResume, serieGenre, serieReleaseDate, genreList, seriePoster }: CardSeriesProps) {
     const genres = getPopularSerieGenre(serieGenre, genreList);
     const poster: string = ('https://image.tmdb.org/t/p/original' + seriePoster)
-    const link: string = ('/serie/'+serieId)
+    const link: string = ('/serie/' + serieId)
 
     return (
         <li className="movie-card-popular">

@@ -5,10 +5,10 @@
     flex-direction: row;
     gap: 2vw;
     height: max-content;
-    overflow-x: scroll;
+    overflow-y: scroll;
 }
 
-.movie-card-link{
+.movie-card-link {
     text-decoration: none;
 }
 
@@ -19,7 +19,7 @@
     border: 1px solid var(--seasalt);
 
     width: 35vw;
-    max-height: 40vw;
+    max-height: 25vw;
 
 
     display: flex;
@@ -28,11 +28,13 @@
 
     padding: .75vw;
 
-    overflow:hidden;
+    overflow: hidden;
 }
 
 .movie-card-popular {
     background-color: var(--space-cadet);
+
+    max-height: min-content;
 
     display: flex;
     flex-direction: column;
@@ -90,7 +92,7 @@
     max-height: fit-content;
     overflow: hidden;
     text-overflow: ellipsis;
-    align-items:center
+    align-items: center
 }
 
 /** Movie card insight */
@@ -120,10 +122,9 @@
     justify-content: center;
 }
 
-.movie-card-image-insight {
-    border-radius: 15px;
-    width: 100vw;
-    height: 30vh;
+.movie-card-insight-image {
+    width: 30vw;
+    border-radius: 5px;
 }
 
 .movie-card-name-insight {
@@ -165,7 +166,7 @@
 
 /** Recommended movie card **/
 
-.recommended-movie-wrapper{
+.recommended-movie-wrapper {
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
@@ -173,24 +174,24 @@
     gap: 0.95vw;
 }
 
-.recommended-movie-link{
+.recommended-movie-link {
     text-decoration: none;
 }
 
-.recommended-movie-name{
+.recommended-movie-name {
     font-family: var(--font-family-secondary);
     color: var(--aureolin-light)
 }
 
-.recommended-movie-card{
+.recommended-movie-card {
     max-width: 25vw;
 }
 
-.recommended-movie-image{
+.recommended-movie-image {
     max-width: 12vw;
 }
 
-.recommended-movie-overview{
+.recommended-movie-overview {
     max-height: 12.5vh;
     overflow: scroll;
     scroll-behavior: smooth;
@@ -198,11 +199,11 @@
     line-height: 20px;
 }
 
-.recommended-movie-release{
+.recommended-movie-release {
     font-family: var(--font-family-secondary-italic);
 }
 
-.recommended-movie-genres{
+.recommended-movie-genres {
     font-family: var(--font-family-secondary-bold);
     color: var(--cyclamen-dark)
 }

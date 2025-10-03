@@ -30,18 +30,18 @@ export function SerieContainer({ id }: serieDetailsContainerProps) {
         const backdropImage: string = ('https://image.tmdb.org/t/p/original' + serie.backdrop_path);
         console.log(`Recommandation : ${recommendations.results[0]}`)
         return (
-            <div>
+            <div className='serie-container'>
                 <h2 className="title-2">{serie.name}</h2>
                 <div className='serie-container-poster' style={{ backgroundImage: `url(${backdropImage})` }}> </div>
                 <div className="serie-detail-about">
-                    <p className="serie-tagline">Tagline : {serie.tagline}</p>
+                    <p className="serie-tagline primary-text-bold">Tagline : {serie.tagline}</p>
                 </div>
                 <div className="serie-detail-air">
                     <p className='serie-detail-text'>Première diffusion : {serie.first_air_date}</p>
                     <p className='serie-detail-text'>Prochaine diffusion : {serie.next_episode_to_air}</p>
                     <p className='serie-detail-text'>Dernière diffusion : {serie.last_air_date}</p>
                     <p className='serie-detail-text'>Statut : {serie.status}</p>
-                    <p>: {serie.in_production}</p>
+                    {serie.in_production && <p className='serie-detail-in-production secondary-text'>Actuellement en production</p>}
                 </div>
                 <div className="serie-detail-episode">
                     <p className='serie-detail-text'>Nombre d'épisode : {serie.number_of_episodes}</p>
