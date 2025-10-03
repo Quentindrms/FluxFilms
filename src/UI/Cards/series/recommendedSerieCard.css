@@ -13,6 +13,8 @@
 
 .recommended-serie-card{
     max-width: max-content;
+    display: flex;
+    flex-direction: column;
 }
 
 .recommended-serie-poster{
@@ -20,10 +22,15 @@
 }
 
 .recommended-serie-name{
+    color: var(--seasalt);
     font-family: var(--font-family-secondary);
 }
 
 .recommended-serie-popularity{
-    color: (--cyclamen-light);
+    color: var(--seasalt);
     font-family: var(--font-family-secondary-bold);
+}
+
+.recommended-serie-genre{
+    color: var(--cyclamen-light);
 }
