@@ -128,9 +128,9 @@ export async function fetcherMovieRecommandation(fetchUrl: string) {
 
 /** Actor details fetcher */
 
-export async function fetcherActorDetails(id:number){
-    const url = (`https://api.themoviedb.org/3/person/${id}`);
-    const result = await fetch(url, options);
-    const data = await result.json();
-    return data;
+export async function fetcherActorDetails(id: number) {
+  const url = (`https://api.themoviedb.org/3/person/${id}`);
+  const result = await fetch(url, options);
+  const data = await result.json();
+  return data;
 }

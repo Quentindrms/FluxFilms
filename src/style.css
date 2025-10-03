@@ -26,3 +26,31 @@ body {
 p{
     color: white;
 }
+
+.primary-text {
+    font-family: var(--font-family-primary);
+}
+
+.primary-text-italic {
+    font-family: var(--font-family-primary-italic);
+}
+
+.primary-text-bold {
+    font-family: var(--font-family-primary-bold);
+}
+
+.secondary-text {
+    font-family: var(--font-family-secondary);
+}
+
+.secondary-text-bold {
+    font-family: var(--font-family-secondary-bold);
+}
+
+.secondary-text-italic {
+    font-family: var(--font-family-secondary-italic);
+}
+
+.brand-name-text {
+    font-family: var(--font-family-brand-name);
+}
