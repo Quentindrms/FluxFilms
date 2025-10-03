@@ -1,0 +1,36 @@
+@import url('../../../var.css');
+
+.recommended-series-wrapper{
+    display: flex;
+    flex-direction: row;
+    gap: 0.85vw;
+    overflow-x: scroll;
+}
+
+.recommended-serie-link{
+    text-decoration: none;
+}
+
+.recommended-serie-card{
+    max-width: max-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.recommended-serie-poster{
+    max-width: 12.5vw;
+}
+
+.recommended-serie-name{
+    color: var(--seasalt);
+    font-family: var(--font-family-secondary);
+}
+
+.recommended-serie-popularity{
+    color: var(--seasalt);
+    font-family: var(--font-family-secondary-bold);
+}
+
+.recommended-serie-genre{
+    color: var(--cyclamen-light);
+}

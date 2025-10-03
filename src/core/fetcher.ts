@@ -55,7 +55,7 @@ export async function fetcherTopRatedMovies() {
   return data;
 }
 
-export async function fetcherUpcomingMovies(){
+export async function fetcherUpcomingMovies() {
   const url = 'https://api.themoviedb.org/3/movie/upcoming';
 
   const result = await fetch(url, options);
@@ -65,7 +65,7 @@ export async function fetcherUpcomingMovies(){
 
 /** FetchMovie par genre */
 
-export async function fetcherMovieByGenre(fetchUrl:string){
+export async function fetcherMovieByGenre(fetchUrl: string) {
 
   const url = fetchUrl;
 
@@ -76,8 +76,16 @@ export async function fetcherMovieByGenre(fetchUrl:string){
 
 /** Séries */
 
-export async function 
-fetcherSeriesByGenre(fetchUrl:string){
+export async function fetcherSerieDetails(id: number) {
+  const url = ('https://api.themoviedb.org/3/tv/' + id);
+
+  const result = await fetch(url, options);
+  const data = await result.json();
+  return data;
+}
+
+export async function
+  fetcherSeriesByGenre(fetchUrl: string) {
   const url = fetchUrl;
 
   const result = await fetch(url, options);
@@ -85,9 +93,34 @@ fetcherSeriesByGenre(fetchUrl:string){
   return data;
 }
 
-export async function fetcherSeriesGenre(){
+export async function fetcherSeriesGenre() {
   const url = 'https://api.themoviedb.org/3/genre/tv/list';
 
+  const result = await fetch(url, options);
+  const data = await result.json();
+  return data;
+}
+
+export async function serieRecommendation(url: string) {
+  const result = await fetch(url, options);
+  const data = await result.json();
+  return data;
+}
+
+/** Credit fetcher */
+
+export async function fetcherCreditByMovie(fetchUrl: string) {
+  const url = fetchUrl;
+
+  const result = await fetch(url, options);
+  const data = await result.json();
+  return data;
+}
+
+/** Movie recommandation fetcher */
+
+export async function fetcherMovieRecommandation(fetchUrl: string) {
+  const url = fetchUrl;
   const result = await fetch(url, options);
   const data = await result.json();
   return data;

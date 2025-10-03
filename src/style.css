@@ -18,6 +18,11 @@ body {
 .title-2 {
     font-size: 2rem;
     text-align: center;
+    font-family: var(--font-family-primary);
     color: var(--aureolin-light);
     padding: 2rem;
+}
+
+p{
+    color: white;
 }

@@ -3,6 +3,7 @@ import { type MovieGenre, type SeriesByGenreList, type SeriesGenres } from '../.
 import { getPopularMovieGenres, getPopularSerieGenre } from '../../utilities/getGenreById'
 
 interface CardProps {
+    movieId: number,
     movieName: string,
     movieResume: string,
     movieGenre: MovieGenre[],
@@ -11,6 +12,7 @@ interface CardProps {
 }
 
 interface CardPopularMovieProps {
+    movieId: number,
     movieName: string,
     movieResume: string,
     movieGenre: number[],
@@ -20,6 +22,7 @@ interface CardPopularMovieProps {
 }
 
 interface CardInsightProps {
+    movieId: number,
     movieName: string,
     movieResume: string,
     movieGenre: number[],
@@ -29,6 +32,7 @@ interface CardInsightProps {
 }
 
 interface CardSeriesProps {
+    serieId: number,
     serieName: string,
     serieResume: string,
     serieGenre: number[],
@@ -38,48 +42,52 @@ interface CardSeriesProps {
 }
 
 
-export function Card({ movieName, movieResume, movieGenre, movieReleaseDate, moviePoster }: CardProps) {
+export function Card({ movieId, movieName, movieResume, movieGenre, movieReleaseDate, moviePoster }: CardProps) {
 
     const genreList = movieGenre.map((genre) => genre.name).join(', ');
     const poster: string = ('https://image.tmdb.org/t/p/original' + moviePoster)
 
     return (
         <div className="movie-card">
+            <a href="movie/">
+                <img className='movie-card-image' src={poster} alt="" title=""></img>
 
-            <img className='movie-card-image' src={poster} alt="" title=""></img>
-
-            <h3 className="movie-card-text movie-card-name">{movieName}</h3>
-            <p className='movie-card-resume'>{movieResume}</p>
-            <div className='movie-card-footer'>
-                <p className="movie-card-text movie-card-genre">{genreList}</p>
-                <p className="movie-card-text movie-card-release">{movieReleaseDate}</p>
-            </div>
+                <h3 className="movie-card-text movie-card-name">{movieName}</h3>
+                <p className='movie-card-resume'>{movieResume}</p>
+                <div className='movie-card-footer'>
+                    <p className="movie-card-text movie-card-genre">{genreList}</p>
+                    <p className="movie-card-text movie-card-release">{movieReleaseDate}</p>
+                </div>
+            </a>
         </div>
     )
 }
 
-export function CardPopularMovie({ movieName, movieResume, movieGenre, movieReleaseDate, genreList, moviePoster }: CardPopularMovieProps) {
+export function CardPopularMovie({ movieId, movieName, movieResume, movieGenre, movieReleaseDate, genreList, moviePoster }: CardPopularMovieProps) {
 
     const genres = getPopularMovieGenres(movieGenre, genreList);
     const poster: string = ('https://image.tmdb.org/t/p/original' + moviePoster)
+    const link: string = ('/movie/' + movieId)
 
     return (
         <li className="movie-card-popular">
-            <img className='movie-card-image' src={poster} alt=""></img>
-            <div className='movie-card-insight-body'>
-                <h3 className="movie-card-name">{movieName}</h3>
-                <p className='movie-card-resume'>{movieResume}</p>
-                <div className='movie-card-footer'>
-                    <p className='movie-card-genre'>{genres}</p>
-                    <p className='movie-card-release'>{movieReleaseDate}</p>
+            <a className='movie-card-link' href={link}>
+                <img className='movie-card-image' src={poster} alt=""></img>
+                <div className='movie-card-insight-body'>
+                    <h3 className="movie-card-name">{movieName}</h3>
+                    <p className='movie-card-resume'>{movieResume}</p>
+                    <div className='movie-card-footer'>
+                        <p className='movie-card-genre'>{genres}</p>
+                        <p className='movie-card-release'>{movieReleaseDate}</p>
+                    </div>
                 </div>
-            </div>
+            </a>
         </li>
     )
 
 }
 
-export function CardInsight({ movieName, movieResume, movieGenre, movieReleaseDate, genreList, moviePoster }: CardInsightProps) {
+export function CardInsight({ movieId, movieName, movieResume, movieGenre, movieReleaseDate, genreList, moviePoster }: CardInsightProps) {
 
     const genres = getPopularMovieGenres(movieGenre, genreList);
     const poster: string = ('https://image.tmdb.org/t/p/original' + moviePoster)
@@ -101,21 +109,24 @@ export function CardInsight({ movieName, movieResume, movieGenre, movieReleaseDa
     )
 }
 
-export function CardSeries({ serieName, serieResume, serieGenre, serieReleaseDate, genreList, seriePoster }: CardSeriesProps) {
+export function CardSeries({ serieId, serieName, serieResume, serieGenre, serieReleaseDate, genreList, seriePoster }: CardSeriesProps) {
     const genres = getPopularSerieGenre(serieGenre, genreList);
     const poster: string = ('https://image.tmdb.org/t/p/original' + seriePoster)
+    const link: string = ('/serie/'+serieId)
 
     return (
         <li className="movie-card-popular">
-            <img className='movie-card-image' src={poster} alt=""></img>
-            <div className='movie-card-insight-body'>
-                <h3 className="movie-card-name">{serieName}</h3>
-                <p className='movie-card-resume'>{serieResume}</p>
-                <div className='movie-card-footer'>
-                    <p className='movie-card-genre'>{genres}</p>
-                    <p className='movie-card-release'>{serieReleaseDate}</p>
+            <a className='movie-card-link' href={link}>
+                <img className='movie-card-image' src={poster} alt=""></img>
+                <div className='movie-card-insight-body'>
+                    <h3 className="movie-card-name">{serieName}</h3>
+                    <p className='movie-card-resume'>{serieResume}</p>
+                    <div className='movie-card-footer'>
+                        <p className='movie-card-genre'>{genres}</p>
+                        <p className='movie-card-release'>{serieReleaseDate}</p>
+                    </div>
                 </div>
-            </div>
+            </a>
         </li>
     )
 

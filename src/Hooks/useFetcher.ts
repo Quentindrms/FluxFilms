@@ -1,14 +1,14 @@
 import { useState } from "react";
-import {type ListMovieByGenre, type MovieByGenre, type MovieDetails, type MovieGenre, type MovieGenreList, type PopularMoviesList, type SeriesGenres, type TopRatedMoviesList, type UpcomingMoviesList, type SeriesByGenreList } from "../core/coreType";
-import { fetcherMovieByGenre, fetcherMovieDetails, fetcherPopularMovies, fetcherSeriesByGenre, fetcherSeriesGenre, fetcherTopRatedMovies, fetcherUpcomingMovies } from "../core/fetcher";
+import { type ListMovieByGenre, type MovieByGenre, type MovieDetails, type MovieGenre, type MovieGenreList, type PopularMoviesList, type SeriesGenres, type TopRatedMoviesList, type UpcomingMoviesList, type SeriesByGenreList, type MovieCast, type MovieCredits, type MovieRecommandations, type SerieDetails, type SerieRecommendation } from "../core/coreType";
+import { fetcherCreditByMovie, fetcherMovieByGenre, fetcherMovieDetails, fetcherMovieRecommandation, fetcherPopularMovies, fetcherSerieDetails, fetcherSeriesByGenre, fetcherSeriesGenre, fetcherTopRatedMovies, fetcherUpcomingMovies, serieRecommendation } from "../core/fetcher";
 import { fetcherGenresList } from "../core/fetcher";
 
-export function useFetcherMovieDetails(): [MovieDetails | undefined, () => void] {
+export function useFetcherMovieDetails(id: number): [MovieDetails | undefined, () => void] {
 
     const [value, setValue] = useState<MovieDetails>();
 
     async function setMovie() {
-        const data = await fetcherMovieDetails(11);
+        const data = await fetcherMovieDetails(id);
         setValue(data);
     };
 
@@ -64,17 +64,25 @@ export function useFetcherMovieByGenre(url: string): [ListMovieByGenre | undefin
 
 /** Séries */
 
+export function useFetcherSerieDetails(id: number): [SerieDetails | undefined, () => void] {
+    const [value, setValue] = useState<SerieDetails>();
+    async function setSerieDetaisl() {
+        const data = await fetcherSerieDetails(id);
+        setValue(data);
+    }
+    return [value, setSerieDetaisl]
+}
+
 export function useFetcherSeriesGenre(): [SeriesGenres[] | undefined, () => void] {
     const [value, setGenres] = useState<SeriesGenres[]>();
     async function setSeriesGenres() {
         const data = await fetcherSeriesGenre();
         setGenres(data.genres);
-        console.log(data)
     }
     return [value, setSeriesGenres];
 }
 
-export function useFetcherSeriesByGenre(url:string): [SeriesByGenreList | undefined, () => void] {
+export function useFetcherSeriesByGenre(url: string): [SeriesByGenreList | undefined, () => void] {
     const [value, setSeries] = useState<SeriesByGenreList>();
     async function setSeriesByGenre() {
         const data = await fetcherSeriesByGenre(url);
@@ -83,3 +91,35 @@ export function useFetcherSeriesByGenre(url:string): [SeriesByGenreList | undefi
     return [value, setSeriesByGenre]
 }
 
+export function useFetcherSerieRecommendation(url: string): [SerieRecommendation | undefined, () => void] {
+    const [value, setSeries] = useState<SerieRecommendation>();
+    async function setSerieRecommendation() {
+        const data = await serieRecommendation(url);
+        setSeries(data);
+    }
+    return [value, setSerieRecommendation]
+}
+
+/** Casting */
+
+export function useFetcherCreditByMovie(id: number): [MovieCredits | undefined, () => void] {
+    const [value, setValue] = useState<MovieCredits>();
+    const url = ('https://api.themoviedb.org/3/movie/' + id + '/credits');
+    async function setCredit() {
+        const data = await fetcherCreditByMovie(url);
+        setValue(data);
+    }
+    return [value, setCredit];
+}
+
+/** Movie recommandation */
+
+export function useFetcherMovieRecommandation(id: number): [MovieRecommandations | undefined, () => void] {
+    const [value, setValue] = useState<MovieRecommandations>();
+    const url = ('https://api.themoviedb.org/3/movie/' + id + '/recommendations');
+    async function setMovieRecommandation() {
+        const data = await fetcherMovieRecommandation(url);
+        setValue(data);
+    }
+    return [value, setMovieRecommandation]
+}

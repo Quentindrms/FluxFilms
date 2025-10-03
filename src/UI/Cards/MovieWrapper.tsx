@@ -31,6 +31,7 @@ export function PopularMovieWrapper() {
             <ul className='movie-wrapper'>
                 {popularMovies.results.map((movie) => (
                     <CardPopularMovie
+                        movieId={movie.id}
                         genreList={genre}
                         movieGenre={movie.genre_ids}
                         movieName={movie.title}
@@ -62,6 +63,7 @@ export function TopRatedMovieWrapper() {
             <div className='movie-wrapper'>
                 {topRatedMovies.results.map((movie) => (
                     <CardPopularMovie
+                        movieId={movie.id}
                         genreList={genre}
                         movieGenre={movie.genre_ids}
                         movieName={movie.title}
@@ -93,6 +95,7 @@ export function UpcommingMovieWrapper() {
             <div className='movie-wrapper'>
                 {movies.results.map((movie) => (
                     <CardPopularMovie
+                        movieId={movie.id}
                         genreList={genre}
                         movieGenre={movie.genre_ids}
                         movieName={movie.title}
@@ -122,6 +125,7 @@ export function ListMovieByGenre({ url }: ListMovieByGenreProps) {
             <div className='movie-wrapper'>
                 {movies.results.map((movie) => (
                     <CardPopularMovie
+                        movieId={movie.id}
                         genreList={genre}
                         movieGenre={movie.genre_ids}
                         movieName={movie.title}
@@ -154,6 +158,7 @@ export function ListSeriesByGenre({ url }: ListSeriesByGenreProps) {
             <div className='movie-wrapper'>
                 {series.results.map((serie) => (
                     <CardSeries
+                        serieId={serie.id}
                         genreList={genre}
                         serieGenre={serie.genre_ids}
                         serieName={serie.name}

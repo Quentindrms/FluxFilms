@@ -1,0 +1,11 @@
+@import '../../var.css';
+
+.serie-container-poster{
+    width: 100vw;
+    height: 25vw;
+    background-position: top;
+}
+
+.serie-detail-text{
+    font-family: var(--font-family-primary);
+}

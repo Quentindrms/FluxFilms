@@ -1,0 +1,59 @@
+@import url('../../var.css');
+
+.movie-container-paragraph {
+    font-family: var(--font-family-secondary);
+}
+
+.list {}
+
+.movie-container-title-2 {
+    text-align: center;
+    font-family: var(--font-family-primary);
+    font-size: 2rem;
+    color: var(--aureolin-light);
+}
+
+.movie-container-title-3 {
+    font-family: var(--font-family-primary);
+    color: var(--aureolin-dark)
+}
+
+.movie-container-overview {
+    font-family: var(--font-family-secondary);
+    color: var(--seasalt-light);
+    line-height: 1.5rem;
+    text-align: center;
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+.movie-container-genre {
+    color: var(--seasalt-light);
+    font-family: var(--font-family-secondary)
+}
+
+.movie-container-style-cylamen-light {
+    color: var(--cyclamen-light);
+}
+
+.movie-container-style-cylamen-dark {
+    color: var(--cyclamen-dark)
+}
+
+.movie-container-style-aureolin-light {
+    color: var(--aureolin-light)
+}
+
+.movie-container-style-aureolin-dark {
+    color: var(--aureolin-dark)
+}
+
+.movie-container-poster {
+    width: 100vw;
+    height: 25vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
+

@@ -5,19 +5,17 @@ import { PopularMovieWrapper, TopRatedMovieWrapper, UpcommingMovieWrapper } from
 
 export const Homepage = () => {
 
-    const [movie, setMovie] = useFetcherMovieDetails();
     const [genre, setGenre] = useFetcherGenreList();
     const [popularMovies, setPopularMovies] = useFetcherPopularMovies();
 
     useEffect(() => {
-        setMovie();
         setGenre();
         setPopularMovies();
     }, [])
 
 
 
-    if (!movie || !genre || !popularMovies) {
+    if (!genre || !popularMovies) {
         return <h1 className='title-2'>Chargement...</h1>
     }
     else {
@@ -27,11 +25,12 @@ export const Homepage = () => {
             <h2 className='title-2'>À l'affiche</h2>
 
             <CardInsight
+                movieId={popularMovies.results[random].id}
                 movieName={popularMovies.results[random].title}
                 movieResume={popularMovies.results[random].overview}
                 movieGenre={popularMovies.results[random].genre_ids}
                 movieReleaseDate={popularMovies.results[random].release_date}
-                moviePoster={popularMovies.results[random].poster_path}
+                moviePoster={popularMovies.results[random].backdrop_path}
                 genreList={genre} />
 
             <h2 className='title-2'>Les plus populaires</h2>
