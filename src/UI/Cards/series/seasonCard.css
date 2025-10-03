@@ -4,13 +4,25 @@
     max-width: fit-content;
     display: flex;
     flex-direction: row;
+    align-items: top;
+    width: 45vw;
+}
+
+.season-about{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .season-poster{
     max-width: 15vw;
+    margin: 2vw;
+    border: 2px solid var(--aureolin-dark);
+    box-shadow: 5px 0px 13px var(--cyclamen-dark);
 }
 
 .season-text{
     font-family: var(--font-family-primary);
-    color: var(--seasalt)
+    color: var(--seasalt);
+    text-align: justify;
 }

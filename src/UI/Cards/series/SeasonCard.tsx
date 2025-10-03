@@ -21,12 +21,12 @@ export function SeasonCard({ air_date, episode_count, id, name, overview, poster
             <img className="season-poster" src={posterLink} ></img>
             </div>
             <div className='season-about season-text'>
-            <p className="season-name season-text">{name}</p>
+            <h3 className="season-name title-3">{name}</h3>
             <p className="season-overview season-text">{overview}</p>
-            <p className="season-number season-text">{season_number}</p>
+            <p className="season-number season-text">Numéro de la saison : {season_number}</p>
             <p className="season-air-date season-text">Date de sortie : {air_date}</p>
             <p className="season-episode-count season-text">Nombre d'épsiode : {episode_count}</p>
-            <p className="season-number season-text">{vote_average}</p>
+            <p className="season-number season-text">Note moyenne : {vote_average}</p>
             </div>
         </div>
     )

@@ -1,4 +1,22 @@
+.actor-container{
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+}
 
 .actor-container-profile{
-    width: 15vw;
+    width: 20vw;
+    padding: 1vw;
+    border-radius: 10px;
+}
+
+.about-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.actor-container-biography{
+    width: 50vw;
+    text-align: justify;
 }

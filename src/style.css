@@ -23,7 +23,15 @@ body {
     padding: 2rem;
 }
 
-p{
+.title-3 {
+    font-size: 1.85rem;
+    text-align: center;
+    font-family: var(--font-family-primary-italic);
+    color: var(--aureolin-dark);
+    padding: 2rem;
+}
+
+p {
     color: white;
 }
 
